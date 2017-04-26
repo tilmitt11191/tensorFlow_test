@@ -10,6 +10,9 @@ from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import numpy as np
 
+from matplotlib import pylab as plt
+import matplotlib.cm as cm
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../../lib/utils")
 from log import Log as l
 log = l.getLogger()
@@ -127,7 +130,7 @@ def main(_):
 			#summary, loss_val, acc_val = sess.run([merged, cross_entropy, accuracy], feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
 			#writer.add_summary(summary, i)
 			#print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
-		if 15000 < i < 15050:
+		if 15000 < i and i < 15050:
 			plt.imshow(mnist.train.batch[0].reshape(28, 28), cmap = cm.Greys_r)
 			plt.savefig("../../data/mnist/train/" + str(i) + ".png")
 			
