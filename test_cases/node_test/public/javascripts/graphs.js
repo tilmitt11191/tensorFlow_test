@@ -78,6 +78,8 @@ $(function(){
 		//name: "circle"
 		name: 'concentric'
 		//name: 'breadthfirst'
+		//name: 'cose',
+		//nodeOverlap: 0
  	});
 	layout.run();
 	/*
