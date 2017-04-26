@@ -127,8 +127,10 @@ def main(_):
 			#summary, loss_val, acc_val = sess.run([merged, cross_entropy, accuracy], feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
 			#writer.add_summary(summary, i)
 			#print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
-		plt.imshow(mnist.train.images[i].reshape(28, 28), cmap = cm.Greys_r)
-		plt.savefig("../../data/mnist/train/" + str(i) + ".png")
+		if 15000 < i < 15050:
+			plt.imshow(mnist.train.images[i].reshape(28, 28), cmap = cm.Greys_r)
+			plt.savefig("../../data/mnist/train/" + str(i) + ".png")
+			
 		# トレーニング実行
 		log.debug("run training [" + str(i) + "]")
 		train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
@@ -137,7 +139,7 @@ def main(_):
 		#results = results_str.lstrip().rstrip().split(" ")
 		log.debug("r[0]: " + str(results_nparray[0]) + ", r[1]: " + str(results_nparray[1]) + "")
 		log.debug(np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]))
-		
+		"""
 		tfp = Tfp(v0=float(results_nparray[0]),\
 					v1=float(results_nparray[1]),\
 					v2=float(results_nparray[2]),\
@@ -148,7 +150,8 @@ def main(_):
 					v7=float(results_nparray[7]),\
 					v8=float(results_nparray[8]),\
 					v9=float(results_nparray[9]))
-		tfp.insert()
+		""
+		#tfp.insert()
 
 	# 評価
 	log.debug("evaluate start")
