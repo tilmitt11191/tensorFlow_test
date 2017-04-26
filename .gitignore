@@ -3,5 +3,6 @@
 /var/log/*
 *.tar.gz
 *.dll
-
+node_modules/*
+__pycache__/*
 !.gitignore
