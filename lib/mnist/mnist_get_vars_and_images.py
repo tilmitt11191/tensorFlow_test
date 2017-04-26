@@ -128,7 +128,7 @@ def main(_):
 			#writer.add_summary(summary, i)
 			#print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
 		if 15000 < i < 15050:
-			plt.imshow(mnist.train.images[i].reshape(28, 28), cmap = cm.Greys_r)
+			plt.imshow(mnist.train.batch[0].reshape(28, 28), cmap = cm.Greys_r)
 			plt.savefig("../../data/mnist/train/" + str(i) + ".png")
 			
 		# トレーニング実行
