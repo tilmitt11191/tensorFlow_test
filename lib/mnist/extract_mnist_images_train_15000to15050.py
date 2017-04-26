@@ -22,9 +22,9 @@ from matplotlib import pylab as plt
 import matplotlib.cm as cm
 
 plt.imshow(mnist.validation.images[0].reshape(28, 28), cmap = cm.Greys_r)
-for i in range(15000,15050):
+for i in range(15001,15052):
 #for i in range(3):
 	print("i:" + str(i))
 	plt.imshow(mnist.train.images[i].reshape(28, 28), cmap = cm.Greys_r)
-	plt.savefig("../../data/mnist/train/" + str(i) + ".png")
+	plt.savefig("../../data/mnist/train/" + str(i-1) + ".png")
 	
