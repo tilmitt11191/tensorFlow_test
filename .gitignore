@@ -1,5 +1,4 @@
-/data/tmp/*
-/data/mnist/*
+/data/*
 /var/log/*
 *.tar.gz
 *.dll
