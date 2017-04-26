@@ -28,8 +28,10 @@ log.debug("ids.size[" + str(len(ids)) + "]")
 log.debug("vectors.size[" + str(len(vectors)) + "]")
 
 ## calc distances between start_node and end_node
-for start_id in range(len(ids)):
-    for end_id in range(len(ids)):
+for start_id in range(500, 1000):
+#for start_id in range(len(ids)):
+    for end_id in range(500, 1000):
+    #for end_id in range(len(ids)):
         if start_id == end_id:
             continue
         if start_id > end_id: #already registerd
