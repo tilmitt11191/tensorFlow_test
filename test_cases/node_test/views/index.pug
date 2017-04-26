@@ -1,0 +1,65 @@
+//extends layout
+
+block content
+	head
+	script(src="http://code.jquery.com/jquery-2.0.3.js")
+	script(src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js")
+
+	body
+		//button#renew(onclick="renew3()")
+		button#renew
+		div#cy
+		div#graph
+
+
+block additionalScripts
+	//script(src="lib/cytoscape.js")
+	//script(src="javascripts/arbor.js")
+	//script(type='text/javascript', src="../public/javascripts/graphs.js")
+	script.
+		$(function(){
+			loadCSS = function(href) {
+				console.log("Load file " + href);
+				var cssLink = $("<link rel='stylesheet' type='text/css' href='"+href+"'>");
+				$("head").append(cssLink);
+			};
+			var host = window.location.href;
+			loadCSS(host + 'stylesheets/style.css');
+		});
+	//script(src="javascripts/script.js")
+	script(src="javascripts/graphs.js")
+
+//-
+	block additionalScripts
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+	//script(src='http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js')
+	script(src='http://malsup.github.com/jquery.form.js')
+	script.
+		$(function(){
+			loadCSS = function(href) {
+				console.log("Load file " + href);
+				var cssLink = $("<link rel='stylesheet' type='text/css' href='"+href+"'>");
+				$("head").append(cssLink);
+			};
+
+			loadJS = function(src) {
+				console.log("Load file " + src);
+				var jsLink = $("<script type='text/javascript' src='"+src+"'>");
+				$("head").append(jsLink);
+			};
+
+			var host = window.location.href;
+			if (host.charAt(host.length-1) == '#')
+				host = host.substr(0, host.length-1);
+			else if (host.charAt(host.length-1) != '/')
+				host = host + "/";
+
+			loadCSS(host + 'stylesheets/style.css');
+			$("#mainLink").attr("href", host + $("#mainLink").attr("href"));
+			$("#ttsLink").attr("href", host + $("#ttsLink").attr("href"));
+			$("#apiLink").attr("href", host + $("#apiLink").attr("href"));
+			$("#helpLink").attr("href", host + $("#helpLink").attr("href"));
+
+			loadJS(host + 'javascripts/graphs.js');
+		});
+
