@@ -15,6 +15,10 @@ from log import Log as l
 log = l.getLogger()
 log.debug("start")
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../../lib/db")
+from table_tf_parameters import Table_tf_parameters as Tfp
+
+
 # 重み変数
 def weight_variable(shape):
 	initial = tf.truncated_normal(shape, stddev=0.1)
@@ -111,7 +115,7 @@ def main(_):
 
 	# トレーニング
 	log.debug("training start")
-	for i in range(100):
+	for i in range(30000):
 		log.debug("i[" + str(i) + "]")
 		batch = mnist.train.next_batch(50)
 		log.debug("got batch")
@@ -127,9 +131,23 @@ def main(_):
 		# トレーニング実行
 		log.debug("run training [" + str(i) + "]")
 		train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
-		#log.debug(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0])
-		#log.debug(np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]))
+		results_nparray = y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]
+		log.debug(results_nparray)
+		#results = results_str.lstrip().rstrip().split(" ")
+		log.debug("r[0]: " + str(results_nparray[0]) + ", r[1]: " + str(results_nparray[1]) + "")
+		log.debug(np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]))
 		
+		tfp = Tfp(v0=float(results_nparray[0]),\
+					v1=float(results_nparray[1]),\
+					v2=float(results_nparray[2]),\
+					v3=float(results_nparray[3]),\
+					v4=float(results_nparray[4]),\
+					v5=float(results_nparray[5]),\
+					v6=float(results_nparray[6]),\
+					v7=float(results_nparray[7]),\
+					v8=float(results_nparray[8]),\
+					v9=float(results_nparray[9]))
+		tfp.insert()
 
 	# 評価
 	log.debug("evaluate start")

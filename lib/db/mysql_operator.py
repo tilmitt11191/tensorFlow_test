@@ -18,7 +18,9 @@ class Mysql_operator:
 		self.log.debug(__class__.__name__ + "." + sys._getframe().f_code.co_name + " start")
 		import sqlalchemy
 		from conf import Conf
-		self.engine = sqlalchemy.create_engine(Conf.getconf("myslq_url"), echo=False)
+		mysql_url = Conf.getconf("myslq_url")
+		self.log.debug("mysql_url[" + mysql_url + "]")
+		self.engine = sqlalchemy.create_engine(mysql_url, echo=False)
 		from sqlalchemy.orm import sessionmaker
 		Session = sessionmaker(bind=self.engine)
 		session = Session()
