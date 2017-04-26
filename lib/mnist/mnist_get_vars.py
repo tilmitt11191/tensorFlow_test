@@ -3,12 +3,18 @@ from __future__ import division
 from __future__ import print_function
 
 import argparse
-import sys
+import sys, os
 
 from tensorflow.examples.tutorials.mnist import input_data
 
 import tensorflow as tf
 import numpy as np
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../../lib/utils")
+from log import Log as l
+log = l.getLogger()
+log.debug("start")
+
 # 重み変数
 def weight_variable(shape):
 	initial = tf.truncated_normal(shape, stddev=0.1)
@@ -25,10 +31,10 @@ def conv2d(x, W):
 
 # プーリング
 def max_pool_2x2(x):
-	return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
-		strides=[1, 2, 2, 1], padding='SAME')
+	return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 def main(_):
+	log.debug("main(_) start")
 	# データ取得
 	mnist = input_data.read_data_sets('./MNIST_data/', one_hot=True)
 
@@ -104,33 +110,37 @@ def main(_):
 	writer = tf.summary.FileWriter("../../var/log/tensorflow_log", sess.graph)
 
 	# トレーニング
+	log.debug("training start")
 	for i in range(100):
+		log.debug("i[" + str(i) + "]")
 		batch = mnist.train.next_batch(50)
-
-		if i % 10 == 0:
+		log.debug("got batch")
+		
+		#if i % 10 == 0:
 			# 途中経過
 			# train_accuracy = accuracy.eval(feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
 			# print("step %d, training accuracy %f" % (i, train_accuracy))
-			summary, loss_val, acc_val = sess.run([merged, cross_entropy, accuracy], feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
-			writer.add_summary(summary, i)
-			print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
-
+			#summary, loss_val, acc_val = sess.run([merged, cross_entropy, accuracy], feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
+			#writer.add_summary(summary, i)
+			#print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
+		
 		# トレーニング実行
+		log.debug("run training [" + str(i) + "]")
 		train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
-		print(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0])
-		print(np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]))
+		#log.debug(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0])
+		#log.debug(np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]))
+		
+
 	# 評価
-	print("test accuracy %f" % accuracy.eval(feed_dict={
-		x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
+	log.debug("evaluate start")
+	print("test accuracy %f" % accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
 
 if __name__ == '__main__':
+	log.debug("__name__: main")
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--data_dir', type=str, default='/tmp/tensorflow/mnist/input_data',
-				help='Directory for storing input data')
+	parser.add_argument('--data_dir', type=str, default='/tmp/tensorflow/mnist/input_data', help='Directory for storing input data')
 	FLAGS, unparsed = parser.parse_known_args()
+	log.debug("tf.app.run start")
 	tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
-	
-	
-
-
-	
+else:
+	log.debug("__name__: else")
