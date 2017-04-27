@@ -41,10 +41,6 @@ $(function(){
 				{
 					selector: 'edge',
 					style: {
-					'width': 0.5,
-					'line-color': '#ccc',
-					'target-arrow-color': '#ccc',
-					'target-arrow-shape': 'triangle'
 					}
 				},
 				{

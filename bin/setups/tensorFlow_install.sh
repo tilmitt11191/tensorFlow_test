@@ -40,3 +40,7 @@ cd tutorials
 sudo pip3 install numpy
 sudo pip install setuptools
 sudo pip install theano
+
+
+sudo apt-get install -y xvfb xserver-xephyr
+pip install pyvirtualdisplay

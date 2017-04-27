@@ -63,6 +63,12 @@ router.get('/test', function(req, res, next){
 								"id": row.id,
 								"source": row.start,
 								"target": row.end
+							},
+							"style": {
+								'width': (10-row.relevancy)/3,
+								'line-color': '#ccc',
+								'target-arrow-color': '#ccc',
+								'target-arrow-shape': 'triangle'
 							}
 						}
 						//graph.push(JSON.stringify(data,null,'\t'));
