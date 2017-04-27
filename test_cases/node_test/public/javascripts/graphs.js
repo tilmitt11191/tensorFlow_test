@@ -56,7 +56,7 @@ $(function(){
 				}
 			],
 			// initial viewport state:
-			zoom: 1,
+			zoom: 0.1,
 			pan: { x: 0, y: 0 },
 			// rendering options:
 			wheelSensitivity: 0.5,

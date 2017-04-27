@@ -13,6 +13,7 @@ class Table_tf_parameters(Base):
 	__tablename__ = 'tf_parameters'
 
 	id = Column("id", INTEGER, primary_key=True)
+	result = Column("result", INTEGER)
 	v0 = Column("v0", FLOAT)
 	v1 = Column("v1", FLOAT)
 	v2 = Column("v2", FLOAT)
@@ -24,7 +25,7 @@ class Table_tf_parameters(Base):
 	v8 = Column("v8", FLOAT)
 	v9 = Column("v9", FLOAT)
 
-	def __init__(self, id="", v0=0, v1=0, v2=0, v3=0, v4=0, v5=0, v6=0, v7=0, v8=0, v9=0):
+	def __init__(self, id="", result=result, v0=0, v1=0, v2=0, v3=0, v4=0, v5=0, v6=0, v7=0, v8=0, v9=0):
 	
 		sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../lib/utils")
 		from log import Log as l
@@ -32,8 +33,9 @@ class Table_tf_parameters(Base):
 		
 		import mysql_operator
 		self.db = mysql_operator.Mysql_operator()
-
+		
 		self.id = id
+		self.result = result
 		self.v0 = v0
 		self.v1 = v1
 		self.v2 = v2

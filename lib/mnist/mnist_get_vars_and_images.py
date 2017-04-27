@@ -10,6 +10,9 @@ from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import numpy as np
 
+from matplotlib import pylab as plt
+import matplotlib.cm as cm
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../../lib/utils")
 from log import Log as l
 log = l.getLogger()
@@ -115,10 +118,16 @@ def main(_):
 
 	# トレーニング
 	log.debug("training start")
-	for i in range(30000):
+	#start_node = 15000
+	#end_node = 15050
+	start_node = 5000
+	end_node = 5050
+	#start_node = 1
+	#end_node = 50
+	for i in range(end_node):
 		log.debug("i[" + str(i) + "]")
-		batch = mnist.train.next_batch(50)
-		log.debug("got batch")
+		batch = mnist.train.next_batch(1)
+		log.debug("got batch batch[1]:" + str(batch[1]))
 		
 		#if i % 10 == 0:
 			# 途中経過
@@ -127,20 +136,21 @@ def main(_):
 			#summary, loss_val, acc_val = sess.run([merged, cross_entropy, accuracy], feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
 			#writer.add_summary(summary, i)
 			#print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
-		if 15000 < i < 15050:
-			plt.imshow(mnist.train.images[i].reshape(28, 28), cmap = cm.Greys_r)
-			plt.savefig("../../data/mnist/train/" + str(i) + ".png")
 			
 		# トレーニング実行
 		log.debug("run training [" + str(i) + "]")
 		train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 		results_nparray = y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]
+		result = np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0])
 		log.debug(results_nparray)
-		#results = results_str.lstrip().rstrip().split(" ")
-		log.debug("r[0]: " + str(results_nparray[0]) + ", r[1]: " + str(results_nparray[1]) + "")
-		log.debug(np.argmax(y_conv.eval(feed_dict={ x: batch[0], y_:batch[1], keep_prob: 1.0 })[0]))
-		"""
-		tfp = Tfp(v0=float(results_nparray[0]),\
+		log.debug("result[" + str(result) + "]")
+		if start_node < i < end_node:
+			#plt.imshow(mnist.train.images[i].reshape(28, 28), cmap = cm.Greys_r)
+			plt.imshow(batch[0].reshape(28, 28), cmap = cm.Greys_r)
+			plt.savefig("../../data/mnist/train_realtime/" + str(i) + ".png")
+			tfp = Tfp(id = i,\
+					result=int(result),\
+					v0=float(results_nparray[0]),\
 					v1=float(results_nparray[1]),\
 					v2=float(results_nparray[2]),\
 					v3=float(results_nparray[3]),\
@@ -150,9 +160,8 @@ def main(_):
 					v7=float(results_nparray[7]),\
 					v8=float(results_nparray[8]),\
 					v9=float(results_nparray[9]))
-		""
-		#tfp.insert()
 
+			tfp.insert()
 	# 評価
 	log.debug("evaluate start")
 	print("test accuracy %f" % accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))

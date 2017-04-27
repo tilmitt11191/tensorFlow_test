@@ -28,17 +28,15 @@ log.debug("ids.size[" + str(len(ids)) + "]")
 log.debug("vectors.size[" + str(len(vectors)) + "]")
 
 ## calc distances between start_node and end_node
-for start_id in range(500, 1000):
-#for start_id in range(len(ids)):
-    for end_id in range(500, 1000):
-    #for end_id in range(len(ids)):
+for start_id in range(len(ids)):
+    for end_id in range(len(ids)):
         if start_id == end_id:
             continue
         if start_id > end_id: #already registerd
             continue
-        log.debug("create edge from start[" + str(start_id) + "] to end[" + str(end_id) + "]")
+        log.debug("create edge from start[" + str(ids[start_id]) + "] to end[" + str(ids[end_id]) + "]")
         log.debug("start_vec: " + str(vectors[start_id]) + ", end_vec: " + str(vectors[end_id]))
         distance = float(np.linalg.norm(vectors[start_id] - vectors[end_id]))
         log.debug("distance: " + str(distance))
-        edge = Table_edges(start=start_id, end=end_id, relevancy=distance)
+        edge = Table_edges(start=ids[start_id], end=ids[end_id], relevancy=distance)
         edge.insert()

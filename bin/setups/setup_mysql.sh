@@ -20,6 +20,8 @@ flush privileges;"
 sudo mysql -p -e "\
 create table mnist.tf_parameters (\
 id int, \
+result int, \
+v0 float, \
 v1 float, \
 v2 float, \
 v3 float, \
@@ -28,8 +30,7 @@ v5 float, \
 v6 float, \
 v7 float, \
 v8 float, \
-v9 float, \
-v0 float);\
+v9 float);\
 flush privileges;"
 
 sudo mysql -p -e "\
