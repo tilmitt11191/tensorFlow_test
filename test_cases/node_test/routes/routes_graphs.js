@@ -5,8 +5,8 @@ var cytoscape = require('cytoscape');
 var mysql = require('mysql');
 var log = require('../utils/utils').getLogger();
 
-var markovCluster = require('../lib/cytoscape.js-markov-cluster/cytoscape-markov-cluster.js');
-markovCluster( cytoscape ); // register extension
+//var markovCluster = require('../lib/cytoscape.js-markov-cluster/cytoscape-markov-cluster.js');
+//markovCluster( cytoscape ); // register extension
 
 
 function returnSuccess(res, data) {

@@ -41,7 +41,12 @@ $(function(){
 				{
 					selector: 'edge',
 					style: {
-					}
+					}/*,
+					css: {
+						'overlay-color': '#c0c0c0',
+						'overlay-padding': '50000px',
+						'overlay-opacity': 100
+					}*/
 				},
 				{
 					"selector" : "node:selected",
@@ -74,7 +79,7 @@ $(function(){
 		//name: "circle"
 		//name: 'concentric'
 		//name: 'breadthfirst'
-		//name: 'cose',
+		name: 'cose',
 		//nodeOverlap: 0
  	});
 	var options = {
@@ -95,10 +100,12 @@ $(function(){
 
 		// Number of iterations between consecutive screen positions update
 		// (0 -> only updated on the end)
-		refresh: 20,
+		//refresh: 20,
+		refresh: 1,
 
 		// Whether to fit the network view after when done
 		fit: true,
+		//fit: false,
 
 		// Padding on fit
 		padding: 30,
@@ -108,6 +115,7 @@ $(function(){
 
 		// Randomize the initial positions of the nodes (true) or use existing positions (false)
 		randomize: false,
+		//randomize: true,
 
 		// Extra spacing between components in non-compound graphs
 		componentSpacing: 100,
@@ -122,13 +130,15 @@ $(function(){
 		idealEdgeLength: function( edge ){ return 10; },
 
 		// Divisor to compute edge forces
-		edgeElasticity: function( edge ){ return 100; },
+		//edgeElasticity: function( edge ){ return 100; },
+		edgeElasticity: 20,
 
 		// Nesting factor (multiplier) to compute ideal edge length for nested edges
 		nestingFactor: 5,
 
 		// Gravity force (constant)
-		gravity: 80,
+		//gravity: 80,
+		gravity: 0,
 
 		// Maximum number of iterations to perform
 		numIter: 1000,
@@ -146,6 +156,11 @@ $(function(){
 		weaver: false
 	};
 	cy.layout(options);
+	/*cy.viewport({
+		zoom: 10000,
+		pan: { x: 100, y: 100 }
+	});*/
+	cy.boxSelectionEnabled( true );
 	layout.run();
 	/*
 	cy.add( {"data": {"id": 11}} );
