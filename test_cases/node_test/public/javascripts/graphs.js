@@ -72,7 +72,7 @@ $(function(){
 		//name: "random"
 		//name: 'grid'
 		//name: "circle"
-		name: 'concentric'
+		//name: 'concentric'
 		//name: 'breadthfirst'
 		//name: 'cose',
 		//nodeOverlap: 0

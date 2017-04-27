@@ -118,10 +118,10 @@ def main(_):
 
 	# トレーニング
 	log.debug("training start")
-	#start_node = 15000
-	#end_node = 15050
-	start_node = 5000
-	end_node = 5050
+	start_node = 15000
+	end_node = 15050
+	#start_node = 5000
+	#end_node = 5050
 	#start_node = 1
 	#end_node = 50
 	for i in range(end_node):
@@ -136,12 +136,6 @@ def main(_):
 			#summary, loss_val, acc_val = sess.run([merged, cross_entropy, accuracy], feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
 			#writer.add_summary(summary, i)
 			#print('Step: %d, Loss: %f, Accuracy: %f' % (i, loss_val, acc_val))
-<<<<<<< HEAD
-=======
-		if 15000 < i and i < 15050:
-			plt.imshow(mnist.train.batch[0].reshape(28, 28), cmap = cm.Greys_r)
-			plt.savefig("../../data/mnist/train/" + str(i) + ".png")
->>>>>>> 4cffcc5422d8dac55ada351e9442c8fa9bd1f03e
 			
 		# トレーニング実行
 		log.debug("run training [" + str(i) + "]")

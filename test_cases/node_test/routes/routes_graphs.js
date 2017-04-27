@@ -1,10 +1,13 @@
 
-
 var router = require('express').Router();
 var async = require('async');
 var cytoscape = require('cytoscape');
 var mysql = require('mysql');
 var log = require('../utils/utils').getLogger();
+
+var markovCluster = require('../lib/cytoscape.js-markov-cluster/cytoscape-markov-cluster.js');
+markovCluster( cytoscape ); // register extension
+
 
 function returnSuccess(res, data) {
   res.send({
@@ -21,8 +24,8 @@ var connection = mysql.createConnection({
 });
 
 var graph = [];
-var start_node = 5001;
-var end_node = 5050;
+var start_node = 15001;
+var end_node = 15050;
 router.get('/test', function(req, res, next){
 	log.debug("routes_graphs.js router.post('/test', function(){ start");
 	graph = [];
@@ -76,6 +79,21 @@ router.get('/test', function(req, res, next){
 					}
 				});
 				//log.debug("graph.length after add edges: " + graph.length);
+				callback(null);
+			});
+		},
+		function(callback){
+			var clusters = graph.elements().markovCluster({
+				expandFactor: 2,        // affects time of computation and cluster granularity to some extent: M * M
+				inflateFactor: 2,       // affects cluster granularity (the greater the value, the more clusters): M(i,j) / E(j)
+				multFactor: 1,          // optional self loops for each node. Use a neutral value to improve cluster computations.
+				maxIterations: 10,      // maximum number of iterations of the MCL algorithm in a single run
+				attributes: [           // attributes/features used to group nodes, ie. similarity values between nodes
+    			function(edge) {
+						return edge.data('weight');
+					}
+					// ... and so on
+				]
 				callback(null);
 			});
 		},
@@ -165,7 +183,7 @@ var sampleGraph = {
     //name: 'grid',
     //name: 'random',
     //name: 'concentric',
-    name: 'breadthfirst',
+    //name: 'breadthfirst',
     //name: 'cose',
     rows: 1
   }
