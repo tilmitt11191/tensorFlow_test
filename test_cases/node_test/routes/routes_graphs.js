@@ -82,7 +82,7 @@ router.get('/test', function(req, res, next){
 				callback(null);
 			});
 		},
-		function(callback){
+/*		function(callback){
 			var clusters = graph.elements().markovCluster({
 				expandFactor: 2,        // affects time of computation and cluster granularity to some extent: M * M
 				inflateFactor: 2,       // affects cluster granularity (the greater the value, the more clusters): M(i,j) / E(j)
@@ -94,9 +94,9 @@ router.get('/test', function(req, res, next){
 					}
 					// ... and so on
 				]
-				callback(null);
 			});
-		},
+			callback(null);
+		},*/
 		function(callback){
 			log.debug("graph.length before return: " + graph.length);
 			graph.forEach( function(el){
@@ -185,7 +185,7 @@ var sampleGraph = {
     //name: 'concentric',
     //name: 'breadthfirst',
     //name: 'cose',
-    rows: 1
+    //rows: 1
   }
 }
 
