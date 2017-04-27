@@ -21,8 +21,8 @@ var connection = mysql.createConnection({
 });
 
 var graph = [];
-var start_node = 15000;
-var end_node = 15050;
+var start_node = 5001;
+var end_node = 5050;
 router.get('/test', function(req, res, next){
 	log.debug("routes_graphs.js router.post('/test', function(){ start");
 	graph = [];
@@ -55,7 +55,7 @@ router.get('/test', function(req, res, next){
 				log.debug("edge num: " + rows.length);
 				log.debug("graph.length before add edges: " + graph.length);
 				rows.forEach( function(row) {
-					if(row.relevancy < 15 && start_node <= row.start && row.start < end_node && start_node < row.end && row.end < end_node ){
+					if(row.relevancy < 10 && start_node <= row.start && row.start < end_node && start_node < row.end && row.end < end_node ){
 						//edge = '{"id": ' + row.id + ', "source": ' + row.start + ', "target": ' + row.end + '}';
 						//data = '{"data":' + edge + '}';
 						data = {
