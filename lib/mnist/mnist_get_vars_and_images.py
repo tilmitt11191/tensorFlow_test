@@ -118,8 +118,8 @@ def main(_):
 
 	# トレーニング
 	log.debug("training start")
-	start_node = 15000
-	end_node = 15050
+	start_node = 0
+	end_node = 55000
 	#start_node = 5000
 	#end_node = 5050
 	#start_node = 1
