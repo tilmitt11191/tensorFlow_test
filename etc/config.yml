@@ -12,4 +12,5 @@ rotate_log_lines: 100000
 backup_log_count: 10
 
 myslq_url: "mysql+pymysql://alladmin:admin@localhost/mnist?charset=utf8"
+wikitext_myslq_url: "mysql+pymysql://alladmin:admin@localhost/wikitext?charset=utf8"
 
