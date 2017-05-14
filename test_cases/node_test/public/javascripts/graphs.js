@@ -27,9 +27,9 @@ $(function(){
 			//elements: {node: {data: {id: 1}}},
 			//elements: graph.data[0],
 			//elements: {"data": {"id": 241}},
-			//elements: JSON.stringify(graph,null,'\t'), 
+			//elements: JSON.stringify(graph,null,'\t'),
 			//elements: graph.toString(),
-			//elements: JSON.parse(graph), 
+			//elements: JSON.parse(graph),
 			style: [ // the stylesheet for the graph
 				{
 					selector: 'node',
@@ -60,7 +60,7 @@ $(function(){
 			zoom: 0.1,
 			pan: { x: 0, y: 0 },
 			// rendering options:
-			wheelSensitivity: 0.5,
+			wheelSensitivity: 0.1,
 	})
 	//cy.add(graph);
   //cy.add(JSON.stringify(graph,null,'\t'));
@@ -91,7 +91,7 @@ $(function(){
 		stop: function () {
 		},
 		// number of ticks per frame; higher is faster but more jerky
-		refresh: 30, 
+		refresh: 30,
 		// Whether to fit the network view after when done
 		fit: true,
 		// Padding on fit
@@ -222,12 +222,12 @@ $(function(){
   console.log("showGraph finished");
 	}
 
-		
+
 	loadGraph();
 });
 /*
 var cy = cytoscape({
-  
+
   container: document.getElementById('cy'), // container to render in
   elements: [ // list of graph elements to start with
     { // node a
@@ -262,7 +262,7 @@ var cy = cytoscape({
   ],
 
   layout: {
-		name: "preset", 
+		name: "preset",
     //name: 'grid',
     //rows: 2
     //name: 'random',
@@ -271,7 +271,7 @@ var cy = cytoscape({
     //name: 'cose',
   }
 });
-console.log("container[" + cy.container + "]");  
+console.log("container[" + cy.container + "]");
 cy.nodes().forEach(function( ele ){
   console.log( ele.id() );
 });
@@ -307,8 +307,7 @@ $(function(){
 
 	function alerttest(){
 		log.info("alerttest start");
-	
+
 	};
 });
 */
-
