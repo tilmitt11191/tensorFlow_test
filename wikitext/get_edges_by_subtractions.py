@@ -43,6 +43,6 @@ for start_id in range(len(ids)):
 		log.debug("calc distance")
 		distance = float(np.linalg.norm(vectors[start_id] - vectors[end_id]))
 		print("distance[" + str(distance) + "]")
-				log.debug("distance: " + str(distance))
+		log.debug("distance: " + str(distance))
 		edge = Table_edges(start=ids[start_id], end=ids[end_id], relevancy=distance)
 		edge.insert()
