@@ -9,9 +9,9 @@ sudo mysql -p -e "\
 create user 'alladmin'@'localhost' identified by 'admin';\
 flush privileges;"
 
+#drop database wikitext;\
 echo "create database wikitext"
 sudo mysql -p -e "\
-drop database wikitext;\
 create database wikitext;\
 grant ALL on wikitext.* to 'alladmin'@'localhost';\
 flush privileges;"

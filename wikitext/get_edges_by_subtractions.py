@@ -36,11 +36,13 @@ for start_id in range(len(ids)):
             continue
         if start_id > end_id: #already registerd
             continue
-        log.debug("create edge from start[" + str(ids[start_id]) + "] to end[" + str(ids[end_id]) + "]")
+				print("from[" + str(ids[start_id]) + "] to[" + str(ids[end_id]) + "]")
+				log.debug("create edge from start[" + str(ids[start_id]) + "] to end[" + str(ids[end_id]) + "]")
         log.debug("start_vec: " + str(vectors[start_id]))
         log.debug("end_vec: " + str(vectors[end_id]))
         log.debug("calc distance")
         distance = float(np.linalg.norm(vectors[start_id] - vectors[end_id]))
-        log.debug("distance: " + str(distance))
+        print("distance[" + str(distance) + "]")
+				log.debug("distance: " + str(distance))
         edge = Table_edges(start=ids[start_id], end=ids[end_id], relevancy=distance)
         edge.insert()
