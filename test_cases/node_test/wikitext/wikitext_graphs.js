@@ -106,7 +106,7 @@ router.get('/data', function(req, res, next){
 			callback(null);
 		},*/
 		function(callback){
-			log.debug("graph.length before return: " + graph.length);
+			log.debug("return graph. length: " + graph.length);
 			//graph.forEach( function(el){
 				//log.debug("el: " + el);
 			//});
@@ -128,7 +128,7 @@ function getPapersFromMysql(callback, graph) {
 				log.debug("node[" + row.id + "]")
 				data = {
 					"data": {
-						"id": row.id,
+						"id": row.id
 					}
 				}
 				//graph.push(JSON.stringify(data,null,'\t'));

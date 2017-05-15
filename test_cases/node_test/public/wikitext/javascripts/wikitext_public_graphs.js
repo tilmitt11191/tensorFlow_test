@@ -76,11 +76,11 @@ $(function(){
 		//name: "preset"
 		//name: "random"
 		//name: 'grid'
-		//name: "circle"
+		name: "circle"
 		//name: 'concentric'
 		//name: 'breadthfirst'
 		//name: 'cose',
-		name: 'cose-bilkent'
+		//name: 'cose-bilkent'
  	});
 	var cosebOptions = {
 		name: 'cose-bilkent',
