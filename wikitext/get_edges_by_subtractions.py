@@ -23,26 +23,26 @@ records = db.session.query(Table_nodes).all()
 ids = []
 vectors = []
 for record in records:
-    ids.append(record.id)
-    vectors.append(np.array(record.vector.split(","),dtype=float))
+	ids.append(record.id)
+	vectors.append(np.array(record.vector.split(","),dtype=float))
 
 log.debug("ids.size[" + str(len(ids)) + "]")
 log.debug("vectors.size[" + str(len(vectors)) + "]")
 
 ## calc distances between start_node and end_node
 for start_id in range(len(ids)):
-    for end_id in range(len(ids)):
-        if start_id == end_id:
-            continue
-        if start_id > end_id: #already registerd
-            continue
-				print("from[" + str(ids[start_id]) + "] to[" + str(ids[end_id]) + "]")
-				log.debug("create edge from start[" + str(ids[start_id]) + "] to end[" + str(ids[end_id]) + "]")
-        log.debug("start_vec: " + str(vectors[start_id]))
-        log.debug("end_vec: " + str(vectors[end_id]))
-        log.debug("calc distance")
-        distance = float(np.linalg.norm(vectors[start_id] - vectors[end_id]))
-        print("distance[" + str(distance) + "]")
+	for end_id in range(len(ids)):
+		if start_id == end_id:
+			continue
+		if start_id > end_id: #already registerd
+			continue
+		print("from[" + str(ids[start_id]) + "] to[" + str(ids[end_id]) + "]")
+		log.debug("create edge from start[" + str(ids[start_id]) + "] to end[" + str(ids[end_id]) + "]")
+		log.debug("start_vec: " + str(vectors[start_id]))
+		log.debug("end_vec: " + str(vectors[end_id]))
+		log.debug("calc distance")
+		distance = float(np.linalg.norm(vectors[start_id] - vectors[end_id]))
+		print("distance[" + str(distance) + "]")
 				log.debug("distance: " + str(distance))
-        edge = Table_edges(start=ids[start_id], end=ids[end_id], relevancy=distance)
-        edge.insert()
+		edge = Table_edges(start=ids[start_id], end=ids[end_id], relevancy=distance)
+		edge.insert()
