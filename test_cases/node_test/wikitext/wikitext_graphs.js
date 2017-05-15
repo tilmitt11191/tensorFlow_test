@@ -4,7 +4,7 @@ var async = require('async');
 var cytoscape = require('cytoscape');
 var mysql = require('mysql');
 var log = require('../utils/utils').getLogger();
-
+log.debug("wikitext_graph.js start");
 //var markovCluster = require('../lib/cytoscape.js-markov-cluster/cytoscape-markov-cluster.js');
 //markovCluster( cytoscape ); // register extension
 var regCose = require('cytoscape-cose-bilkent');
@@ -12,14 +12,14 @@ regCose( cytoscape ); // register extension
 
 
 var start_node = 1;
-var end_node = 15;
+var end_node = 4;
 var relevancy = 15
 
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'alladmin',
   password : 'admin',
-  database : 'mnist'
+  database : 'wikitext'
 });
 
 
@@ -76,9 +76,9 @@ var coseDefaultOptions = {
   // Gravity range (constant)
   gravityRange: 3.8
 };
-
-router.get('/test', function(req, res, next){
-	log.debug("routes_graphs.js router.post('/test', function(){ start");
+log.debug("path" + __dirname)
+router.get('/data', function(req, res, next){
+	log.debug("routes_graphs.js router.get('/data', function(){ start");
 	var graph = [];
 	async.waterfall([
 		function(callback){
@@ -117,32 +117,32 @@ router.get('/test', function(req, res, next){
 });
 
 function getPapersFromMysql(callback, graph) {
-	for(var i = start_node; i < end_node; i++){
-		data = {
-			"data": {
-				"id": i,
-			},
-			"style": {
-				'width': '28px',
-				'height': '28px',
-				'background-image': "./images/" + i + ".png",
-				'background-width' : "100%",
-				'background-height' : "100%",
-				'backgroud-fit': 'contain'
+	connection.query('SELECT * from nodes;', function (err, rows, fields) {
+		if (err) { console.log('err: ' + err); }
+		log.debug("node num: " + rows.length);
+		log.debug("graph.length before add nodes: " + graph.length);
+		rows.forEach( function(row) {
+			if(start_node <= row.id && row.id < end_node){
+				//edge = '{"id": ' + row.id + ', "source": ' + row.start + ', "target": ' + row.end + '}';
+				//data = '{"data":' + edge + '}';
+				log.debug("node[" + row.id + "]")
+				data = {
+					"data": {
+						"id": row.id,
+					}
+				}
+				//graph.push(JSON.stringify(data,null,'\t'));
+				graph.push(data);
 			}
-		}
-		//log.debug("node[" + i + "]")
-		graph.push(data);
-	}
-
-	log.debug("graph.length after add nodes: " + graph.length);
-	callback(null);
+		});
+		log.debug("graph.length after add nodes: " + graph.length);
+		callback(null);
+	});
 }
 
 function getEdgesFromMysql(callback, graph) {
 	log.debug("getEdgesFromMysql(graph) start");
 	log.debug("graph.length: " + graph.length)
-	testComment = "this is test comment";
 	/*
 	query = 'SELECT * from edges;';
 	records = mysql.format(query);
@@ -160,11 +160,13 @@ function getEdgesFromMysql(callback, graph) {
 		if (err) { console.log('err: ' + err); }
 		log.debug("edge num: " + rows.length);
 		log.debug("graph.length before add edges: " + graph.length);
-		log.debug("testComment: " + testComment);
 		rows.forEach( function(row) {
-			if(row.relevancy < relevancy && start_node <= row.start && row.start < end_node && start_node < row.end && row.end < end_node ){
+			if(row.relevancy < relevancy &&
+				start_node <= row.start && row.start < end_node &&
+				start_node < row.end && row.end < end_node ){
 				//edge = '{"id": ' + row.id + ', "source": ' + row.start + ', "target": ' + row.end + '}';
 				//data = '{"data":' + edge + '}';
+				log.debug("edge from[" + row.start + "] to [" + row.end + "]")
 				data = {
 					"data": {
 						"id": row.id,
@@ -184,7 +186,7 @@ function getEdgesFromMysql(callback, graph) {
 		});
 		//log.debug("graph.length after add edges: " + graph.length);
 		callback(null);	
-	}, testComment);	
+	});
 }
 
 function createGraph(graph){

@@ -6,7 +6,6 @@ var app = express();
 var path = require('path');
 
 var log = require('./utils/utils').getLogger();
-log.debug("routes_graph.js start");
 
 app.set('views', path.join(__dirname + '/views'));
 app.set('view engine', 'pug');
@@ -20,12 +19,10 @@ app.use('/', routes);
 var graphs = require("./routes/routes_graphs")
 app.use('/graphs', graphs);
 
-
-
-
-
-
-
+var wikitext = require('./wikitext/wikitext_index');
+app.use('/wikitext', wikitext);
+var wikitext_graphs = require('./wikitext/wikitext_graphs');
+app.use('/wikitext/graphs', wikitext_graphs);
 
 app.listen(port,function(){
 	log.info("Expressサーバーがポート%dで起動しました。モード:%s",port,app.settings.env)

@@ -1,0 +1,22 @@
+//extends wikitext_layout
+
+block content
+	head
+	script(src="http://code.jquery.com/jquery-2.0.3.js")
+	script(src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js")
+	script(src="lib/cytoscape-cose-bilkent.js")
+	body
+		div#graph
+
+block additionalScripts
+	script.
+		$(function(){
+			loadCSS = function(href) {
+				console.log("Load file " + href);
+				var cssLink = $("<link rel='stylesheet' type='text/css' href='"+href+"'>");
+				$("head").append(cssLink);
+			};
+			var host = window.location.href;
+			loadCSS(host + 'stylesheets/style.css');
+		});
+	script(src="javascripts/wikitext_public_graphs.js")
