@@ -44,7 +44,9 @@ if __name__ == "__main__":
 
 	num_of_core = multiprocessing.cpu_count()
 	p = Pool(num_of_core - 1)
-	return True
+	print(p)
+	sys.exit()
+
 	db = Mysql_operator()
 	records = db.session.query(Table_nodes).all()
 
