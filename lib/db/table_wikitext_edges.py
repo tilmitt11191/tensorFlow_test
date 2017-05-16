@@ -42,6 +42,7 @@ class Table_edges(Base):
 		self.db.insert(self)
 		self.db.session.expunge(self)
 		self.db.session.close()
+		self.db.close()
 
 	def get_id(self):
 		self.log.debug(__class__.__name__ + "." + sys._getframe().f_code.co_name + " start")		
