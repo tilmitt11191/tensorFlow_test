@@ -1,8 +1,11 @@
+import codecs
 import re
 import xml.etree.ElementTree as ET
 
 #XmlData = "sample_enwiki_pages_article.txt"
-XmlData = "../../data/wikitext/enwiki-20170501-pages-articles1.xml-p10p30302"
+#XmlData = "../../data/wikitext/enwiki-20170501-pages-articles1.xml-p10p30302"
+#XmlData = "../../data/wikitext/datasets/enwiki-20170501-pages-articles2.xml-p30304p88444"
+XmlData = "../../data/wikitext/datasets/enwiki-20170501-pages-articles-multistream.xml"
 path = "../../data/wikitext/contents/"
 
 def get_title_and_contents_of(page):
@@ -29,6 +32,18 @@ def get_contents_of(revision):
 			return p.sub("", el.text)
 	return contents
 
+def check_validation(title, contents):
+	if title == "Con":
+		return False
+	if title == "":
+		return False
+	if contents == "":
+		return False
+	if re.match("^Wikipedia[A-Z]", title):
+		print("^Wikipedia[A-Z] return False")
+		return False
+	return True
+
 root = ET.parse(XmlData).getroot()
 pages = [el for el in list(root) if re.match(".*page$", el.tag)]
 
@@ -37,8 +52,10 @@ num = len(pages)
 for page in pages:
 	print("times[" + str(times) + "] num[" + str(num) + "]")
 	title, contents = get_title_and_contents_of(page)
-	if title != "Con" and title != "" and contents != "":
-		f = open(path + re.sub(r"/|:|\?|.|\*", "", title) + ".txt", "w")
+	if check_validation(title, contents):
+		f = codecs.open(
+			path + re.sub("/|:|\?|\.|\*|\"", "", title) + ".txt",
+			"w", "utf-8")
 		f.write(contents.replace("\n", ""))
 		f.close
 	times += 1

@@ -32,27 +32,25 @@ $(function(){
 			//elements: JSON.parse(graph),
 			style: [ // the stylesheet for the graph
 				{
-					selector: 'node',
-					style: {
+					"selector": 'node',
+					"style": {
 						"text-valign" : "center",
 						"text-halign" : "center"
 					}
 				},
 				{
-					selector: 'edge',
-					style: {
-					}/*,
-					css: {
+					"selector": 'edge',
+					"css": {
 						'overlay-color': '#c0c0c0',
-						'overlay-padding': '50000px',
-						'overlay-opacity': 100
-					}*/
+						'overlay-padding': '50px',
+						'overlay-opacity': 0.5
+					}
 				},
 				{
 					"selector" : "node:selected",
 					"css" : {
-						"background-color" : "rgb(255,255,0)",
-						"color": "rgb(0,0,0)"
+						"background-color" : "rgb(255,0,0)",
+						"color": "rgb(255,0,0)"
 					}
 				}
 			],
@@ -63,22 +61,22 @@ $(function(){
 			wheelSensitivity: 0.1,
 	})
 	//cy.add(graph);
-  //cy.add(JSON.stringify(graph,null,'\t'));
-  graph.forEach( function(data) {
-	  console.log("graph.length[" + graph.length + "], cy.add:" + data);
-	  //console.log("data.data:" + data.data);
-	  //cy.add(JSON.stringify(data,null,'\t'));
-	  cy.add( data );
-	  //cy.add(JSON.parse(data));
+	//cy.add(JSON.stringify(graph,null,'\t'));
+	graph.forEach( function(data) {
+		console.log("graph.length[" + graph.length + "], cy.add:" + data);
+		//console.log("data.data:" + data.data);
+		//cy.add(JSON.stringify(data,null,'\t'));
+		cy.add(data);
+		//cy.add(JSON.parse(data));
 	});
 	var layout = cy.layout({
 		//name: "null"
 		//name: "preset"
 		//name: "random"
 		//name: 'grid'
-		name: "circle"
+		//name: "circle"
 		//name: 'concentric'
-		//name: 'breadthfirst'
+		name: 'breadthfirst'
 		//name: 'cose',
 		//name: 'cose-bilkent'
  	});
@@ -207,10 +205,10 @@ $(function(){
 		weaver: false
 	};
 	//cy.layout(options);
-	cy.layout(cosebOptions);
+	//cy.layout(cosebOptions);
 	cy.viewport({
 		zoom: 10000000000000,
-		pan: { x: 1, y: 1 }
+		pan: { x: 0, y: 0 }
 	});
 	cy.boxSelectionEnabled( true );
 	layout.run();
