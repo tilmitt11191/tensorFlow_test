@@ -43,9 +43,7 @@ if __name__ == "__main__":
 	log.info("get_edges_by_subtractions.py start.")
 
 	num_of_core = multiprocessing.cpu_count()
-	p = Pool(num_of_core - 1)
-	print(p)
-	sys.exit()
+	p = Pool(num_of_core * 8 - 1)
 
 	db = Mysql_operator()
 	records = db.session.query(Table_nodes).all()
