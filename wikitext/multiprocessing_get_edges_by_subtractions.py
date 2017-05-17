@@ -26,7 +26,11 @@ def calc_edge_between(param):
 		return True
 	elif start_id > end_id: #already registerd
 		return True
-	print("from[" + str(start_id) + "] to[" + str(end_id) + "]")
+
+	m = "from[" + str(start_id) + "] to[" + str(end_id) + "]"
+	print(m)
+	log.debug(m)
+
 	#log.debug("create edge from start[" + str(start_id) + "] to end[" + 
 		#str(end_id) + "]")
 	#log.debug("start_vec: " + str(vectors[start_id]))
@@ -49,11 +53,11 @@ if __name__ == "__main__":
 	records = db.session.query(Table_nodes).all()
 
 	ids = []
-	vectors = []
+	vectors = {}
 
 	for record in records:
 		ids.append(record.id)
-		vectors.append(np.array(record.vector.split(","),dtype=float))
+		vectors[record.id] = np.array(record.vector.split(","),dtype=float)
 
 	log.debug("ids.size[" + str(len(ids)) + "]")
 	log.debug("vectors.size[" + str(len(vectors)) + "]")
