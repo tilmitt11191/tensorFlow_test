@@ -21,8 +21,9 @@ class Table_nodes(Base):
 	__tablename__ = 'nodes'
 
 	id = Column("id", INTEGER, primary_key=True)
-	title = Column("title", TEXT) 
-	vector = Column("vector", TEXT)
+	title = Column("title", TEXT)
+	doc2vec = Column("doc2vec", TEXT)
+	tensorflow = Column("tensorflow", TEXT)
 	attribute = Column("attribute", TINYTEXT)
 	label = Column("label", TINYTEXT)
 	image = Column("image", TEXT)
@@ -30,14 +31,15 @@ class Table_nodes(Base):
 	timestamp = Column("timestamp", DATETIME)
 
 
-	def __init__(self, id="", title="", vector="", attribute="", label="", image = "", color="", timestamp=None):
+	def __init__(self, id="", title="", doc2vec="", tensorflow="", attribute="", label="", image = "", color="", timestamp=None):
 		self.log = Log.getLogger()
 
 		self.db = Mysql_operator()
 		
 		self.id = id
 		self.title = title
-		self.vector = vector
+		self.doc2vec = doc2vec
+		self.tensorflow = tensorflow
 		self.attribute = attribute
 		self.label = label
 		self.image = image

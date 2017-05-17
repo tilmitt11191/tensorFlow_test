@@ -21,6 +21,6 @@ for key in keys:
 	print("times[" + str(times) + "]/[" + str(len(keys)) +"] key: " + key)
 	np_array = np.array(model.docvecs[key])
 	np_str = ",".join(str(i) for i in np_array)
-	node = Table_nodes(title=key.encode("utf-8"), vector=np_str, timestamp=timestamp)
+	node = Table_nodes(title=key.encode("utf-8"), doc2vec=np_str, timestamp=timestamp)
 	node.insert()
 	times += 1

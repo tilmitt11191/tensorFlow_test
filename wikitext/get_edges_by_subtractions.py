@@ -24,7 +24,7 @@ ids = []
 vectors = []
 for record in records:
 	ids.append(record.id)
-	vectors.append(np.array(record.vector.split(","),dtype=float))
+	vectors.append(np.array(record.doc2vec.split(","),dtype=float))
 
 log.debug("ids.size[" + str(len(ids)) + "]")
 log.debug("vectors.size[" + str(len(vectors)) + "]")
