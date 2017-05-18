@@ -53,18 +53,18 @@ if __name__ == "__main__":
 	records = db.session.query(Table_nodes).all()
 
 	ids = []
-	vectors = {}
+	doc2vec = {}
 
 	for record in records:
 		ids.append(record.id)
-		vectors[record.id] = np.array(record.vector.split(","),dtype=float)
+		doc2vec[record.id] = np.array(record.doc2vec.split(","),dtype=float)
 
 	log.debug("ids.size[" + str(len(ids)) + "]")
-	log.debug("vectors.size[" + str(len(vectors)) + "]")
+	log.debug("vectors.size[" + str(len(doc2vec)) + "]")
 	#for x, y in [[start, end] for start in ids for end in ids]:
 	#	print("x: " + str(x) + ", y: " + str(y))
 	for start_id in ids:
-		params = [[start_id, end_id, vectors] for end_id in ids]
+		params = [[start_id, end_id, doc2vec] for end_id in ids]
 		result = p.map(calc_edge_between, params)
 
 	log.debug("Finished!!")
