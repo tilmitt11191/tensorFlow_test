@@ -2,8 +2,9 @@
 
 import sys,os
 import numpy as np
-import multiprocessing
-from multiprocessing import Pool
+from pyspark import SparkContext
+#import multiprocessing
+#from multiprocessing import Pool
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../lib/utils")
 from conf import Conf
@@ -45,9 +46,7 @@ def calc_edge_between(param):
 if __name__ == "__main__":
 	log.info("get_edges_by_subtractions.py start.")
 
-	num_of_core = multiprocessing.cpu_count()
-	p = Pool(num_of_core * 8 - 1)
-
+	sc = SparkContext()
 	db = Mysql_operator()
 	records = db.session.query(Table_nodes).all()
 
@@ -62,8 +61,8 @@ if __name__ == "__main__":
 	log.debug("vectors.size[" + str(len(doc2vec)) + "]")
 
 	for start_id in ids:
-		params = [[start_id, end_id, doc2vec] for end_id in ids]
-		result = p.map(calc_edge_between, params)
+		params = sc.parallelize([[start_id, end_id, doc2vec] for end_id in ids])
+		result = params.map(calc_edge_between)
 
 	log.debug("Finished!!")
 	print("Finished!!")
