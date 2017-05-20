@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 import sys
-import logging
-import logging.handlers
 from pyspark import SparkContext
 from conf import Conf
 
@@ -20,6 +18,9 @@ class Log:
 	@classmethod
 	def getNormalLogger(cls, logfile="", conffile=""):
 		
+		import logging
+		import logging.handlers
+
 		if(logfile==""):
 			logfile = Conf.getconf("logdir", conffile=conffile) + Conf.getconf("logfile", conffile=conffile)
 		loglevel = Conf.getconf("loglevel", conffile=conffile)
@@ -54,7 +55,9 @@ class Log:
 			logfile = Conf.getconf("logdir", conffile=conffile) + Conf.getconf("logfile", conffile=conffile)
 		sc = SparkContext()
 		log4jLogger = sc._jvm.org.apache.log4j
-		logger = log4jLogger.LogManager.getLogger(__name__)
+		log4j.appender.FILE.File="../../var/log/log"
+		logger = log4jLogger.LogManager.getLogger()
+
 		return logger
 
 

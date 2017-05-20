@@ -6,3 +6,4 @@ from conf import Conf
 from log import Log
 
 log = Log.getLogger()
+log.info("aaa")
