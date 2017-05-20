@@ -1,6 +1,8 @@
 
-from pyspark import SparkContext
-sc = SparkContext()
-data = [1, 2, 3, 4, 5]
-distData = sc.parallelize(data)
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../lib/utils")
+from conf import Conf
+from log import Log
 
+log = Log.getLogger()

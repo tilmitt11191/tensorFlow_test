@@ -1,4 +1,6 @@
 
+exec_env: "spark"
+
 logdir: ../../var/log/
 logfile: log
 node_logfile: node_log

@@ -1,24 +1,30 @@
-
 # -*- coding: utf-8 -*-
-"""
+import sys
 import logging
-class myLogger(logging):
-	def __init__(self):
-		super()
-"""
+import logging.handlers
+from pyspark import SparkContext
+from conf import Conf
 
 class Log:
 
 	@classmethod
 	def getLogger(cls, logfile="", conffile=""):
-		from conf import Conf
+		exec_env = Conf.getconf("exec_env")
+		if exec_env == "normal":
+			return cls.getNormalLogger(logfile=logfile, conffile=conffile)
+		elif exec_env == "spark":
+			return cls.getNormalLogger(logfile=logfile, conffile=conffile)
+		else:
+			sys.exit("getLogger Type Error[" + str(exec_env) + "]")
 
+	@classmethod
+	def getNormalLogger(cls, logfile="", conffile=""):
+		
 		if(logfile==""):
 			logfile = Conf.getconf("logdir", conffile=conffile) + Conf.getconf("logfile", conffile=conffile)
 		loglevel = Conf.getconf("loglevel", conffile=conffile)
 		rotate_log_size = Conf.getconf("rotate_log_size")
 
-		import logging, logging.handlers
 		logger = logging.getLogger()
 		
 		if len(logger.handlers) < 1:
@@ -41,14 +47,15 @@ class Log:
 		return logger
 
 
-
-
-
-
-
-
-
-
+	@classmethod
+	def getSparkLogger(cls, logfile="", conffile=""):
+		
+		if(logfile==""):
+			logfile = Conf.getconf("logdir", conffile=conffile) + Conf.getconf("logfile", conffile=conffile)
+		sc = SparkContext()
+		log4jLogger = sc._jvm.org.apache.log4j
+		logger = log4jLogger.LogManager.getLogger(__name__)
+		return logger
 
 
 
