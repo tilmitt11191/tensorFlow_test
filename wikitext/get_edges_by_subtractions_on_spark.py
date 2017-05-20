@@ -15,10 +15,10 @@ from wikitext_mysql_operator import Mysql_operator
 from table_wikitext_nodes import Table_nodes
 from table_wikitext_edges import Table_edges
 
+sc = SparkContext()
 log4jLogger = sc._jvm.org.apache.log4j
 log = log4jLogger.LogManager.getLogger(__name__)
 #log = Log.getLogger()
-sc = SparkContext()
 
 def calc_edge_between(param):
 
