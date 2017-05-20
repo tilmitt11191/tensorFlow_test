@@ -16,6 +16,7 @@ from table_wikitext_nodes import Table_nodes
 from table_wikitext_edges import Table_edges
 
 log = Log.getLogger()
+sc = SparkContext()
 
 def calc_edge_between(param):
 
@@ -46,7 +47,6 @@ def calc_edge_between(param):
 if __name__ == "__main__":
 	log.info("get_edges_by_subtractions.py start.")
 
-	sc = SparkContext()
 	db = Mysql_operator()
 	records = db.session.query(Table_nodes).all()
 
