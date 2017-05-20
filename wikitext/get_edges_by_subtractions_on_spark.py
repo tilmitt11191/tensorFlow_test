@@ -60,8 +60,10 @@ if __name__ == "__main__":
 	log.debug("ids.size[" + str(len(ids)) + "]")
 	log.debug("vectors.size[" + str(len(doc2vec)) + "]")
 
-	for start_id in ids:
+	for start_id in [ids[0]]:
+		log.debug("start_id[" + str(start_id) + "] create param")
 		params = sc.parallelize([[start_id, end_id, doc2vec] for end_id in ids])
+		log.debug("params.map")
 		result = params.map(calc_edge_between)
 
 	log.debug("Finished!!")
