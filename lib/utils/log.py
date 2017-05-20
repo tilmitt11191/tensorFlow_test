@@ -7,7 +7,7 @@ class Log:
 
 	@classmethod
 	def getLogger(cls, logfile="", conffile=""):
-		return cls.getNormalLogger(logfile=logfile, conffile=conffile)
+		return cls.getSparkLogger(logfile=logfile, conffile=conffile)
 
 	@classmethod
 	def getSparkLogger(cls, logfile="", conffile=""):
