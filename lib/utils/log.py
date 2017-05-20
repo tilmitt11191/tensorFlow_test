@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
+import logging
+import logging.handlers
 from pyspark import SparkContext
 from conf import Conf
 
@@ -17,9 +19,6 @@ class Log:
 
 	@classmethod
 	def getNormalLogger(cls, logfile="", conffile=""):
-		
-		import logging
-		import logging.handlers
 
 		if(logfile==""):
 			logfile = Conf.getconf("logdir", conffile=conffile) + Conf.getconf("logfile", conffile=conffile)
