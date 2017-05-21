@@ -1,0 +1,1197 @@
+2017-05-20 22:07:38,707  INFO SparkContext - Running Spark version 1.6.0
+2017-05-20 22:07:38,741 DEBUG MutableMetricsFactory - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, valueName=Time, value=[Rate of successful kerberos logins and latency (milliseconds)])
+2017-05-20 22:07:38,745 DEBUG MutableMetricsFactory - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, valueName=Time, value=[Rate of failed kerberos logins and latency (milliseconds)])
+2017-05-20 22:07:38,746 DEBUG MutableMetricsFactory - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, valueName=Time, value=[GetGroups])
+2017-05-20 22:07:38,746 DEBUG MetricsSystemImpl - UgiMetrics, User and group related metrics
+2017-05-20 22:07:38,855 DEBUG KerberosName - Kerberos krb5 configuration not found, setting default realm to empty
+2017-05-20 22:07:38,856 DEBUG Groups -  Creating new Groups object
+2017-05-20 22:07:38,857 DEBUG NativeCodeLoader - Trying to load the custom-built native-hadoop library...
+2017-05-20 22:07:38,858 DEBUG NativeCodeLoader - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+2017-05-20 22:07:38,858 DEBUG NativeCodeLoader - java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2017-05-20 22:07:38,858  WARN NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-05-20 22:07:38,858 DEBUG PerformanceAdvisory - Falling back to shell based
+2017-05-20 22:07:38,858 DEBUG JniBasedUnixGroupsMappingWithFallback - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+2017-05-20 22:07:38,895 DEBUG Shell - Failed to detect a valid hadoop home directory
+java.io.IOException: HADOOP_HOME or hadoop.home.dir are not set.
+	at org.apache.hadoop.util.Shell.checkHadoopHome(Shell.java:302)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:327)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:104)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:86)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:66)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:280)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:271)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:248)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:763)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:748)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:621)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2136)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2136)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2136)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:59)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:234)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:381)
+	at py4j.Gateway.invoke(Gateway.java:214)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:79)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:68)
+	at py4j.GatewayConnection.run(GatewayConnection.java:209)
+	at java.lang.Thread.run(Thread.java:748)
+2017-05-20 22:07:38,899 DEBUG Shell - setsid exited with exit code 0
+2017-05-20 22:07:38,899 DEBUG Groups - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+2017-05-20 22:07:38,900 DEBUG UserGroupInformation - hadoop login
+2017-05-20 22:07:38,900 DEBUG UserGroupInformation - hadoop login commit
+2017-05-20 22:07:38,902 DEBUG UserGroupInformation - using local user:UnixPrincipal: ozu
+2017-05-20 22:07:38,902 DEBUG UserGroupInformation - Using user: "UnixPrincipal: ozu" with name ozu
+2017-05-20 22:07:38,902 DEBUG UserGroupInformation - User entry: "ozu"
+2017-05-20 22:07:38,902 DEBUG UserGroupInformation - UGI loginUser:ozu (auth:SIMPLE)
+2017-05-20 22:07:38,909  WARN Utils - Your hostname, Gemini resolves to a loopback address: 127.0.1.1; using 172.19.73.74 instead (on interface enp3s0)
+2017-05-20 22:07:38,909  WARN Utils - Set SPARK_LOCAL_IP if you need to bind to another address
+2017-05-20 22:07:38,917  INFO SecurityManager - Changing view acls to: ozu
+2017-05-20 22:07:38,917  INFO SecurityManager - Changing modify acls to: ozu
+2017-05-20 22:07:38,918  INFO SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(ozu); users with modify permissions: Set(ozu)
+2017-05-20 22:07:38,921 DEBUG SSLOptions - No SSL protocol specified
+2017-05-20 22:07:38,987 DEBUG SSLOptions - No SSL protocol specified
+2017-05-20 22:07:38,987 DEBUG SSLOptions - No SSL protocol specified
+2017-05-20 22:07:38,988 DEBUG SecurityManager - SSLConfiguration for file server: SSLOptions{enabled=false, keyStore=None, keyStorePassword=None, trustStore=None, trustStorePassword=None, protocol=None, enabledAlgorithms=Set()}
+2017-05-20 22:07:38,989 DEBUG SecurityManager - SSLConfiguration for Akka: SSLOptions{enabled=false, keyStore=None, keyStorePassword=None, trustStore=None, trustStorePassword=None, protocol=None, enabledAlgorithms=Set()}
+2017-05-20 22:07:39,018 DEBUG InternalLoggerFactory - Using SLF4J as the default logging framework
+2017-05-20 22:07:39,020 DEBUG PlatformDependent0 - java.nio.Buffer.address: available
+2017-05-20 22:07:39,020 DEBUG PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2017-05-20 22:07:39,020 DEBUG PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2017-05-20 22:07:39,020 DEBUG PlatformDependent0 - java.nio.Bits.unaligned: true
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - Java version: 8
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - -Dio.netty.noUnsafe: false
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - sun.misc.Unsafe: available
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - -Dio.netty.noJavassist: false
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - Javassist: unavailable
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2017-05-20 22:07:39,021 DEBUG PlatformDependent - -Dio.netty.noPreferDirect: false
+2017-05-20 22:07:39,027 DEBUG MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2017-05-20 22:07:39,035 DEBUG NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2017-05-20 22:07:39,035 DEBUG NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2017-05-20 22:07:39,042 DEBUG PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2017-05-20 22:07:39,054 DEBUG ThreadLocalRandom - -Dio.netty.initialSeedUniquifier: 0xe1ddfe99d68cbeb4 (took 0 ms)
+2017-05-20 22:07:39,069 DEBUG ByteBufUtil - -Dio.netty.allocator.type: unpooled
+2017-05-20 22:07:39,069 DEBUG ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 65536
+2017-05-20 22:07:39,070 DEBUG NetUtil - Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+2017-05-20 22:07:39,070 DEBUG NetUtil - /proc/sys/net/core/somaxconn: 128
+2017-05-20 22:07:39,074 DEBUG TransportServer - Shuffle server started on port :34707
+2017-05-20 22:07:39,075  INFO Utils - Successfully started service 'sparkDriver' on port 34707.
+2017-05-20 22:07:39,077 DEBUG AkkaUtils - In createActorSystem, requireCookie is: off
+2017-05-20 22:07:39,241  INFO Slf4jLogger - Slf4jLogger started
+2017-05-20 22:07:39,257  INFO Remoting - Starting remoting
+2017-05-20 22:07:39,330  INFO Remoting - Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.19.73.74:34920]
+2017-05-20 22:07:39,333  INFO Utils - Successfully started service 'sparkDriverActorSystem' on port 34920.
+2017-05-20 22:07:39,334 DEBUG SparkEnv - Using serializer: class org.apache.spark.serializer.JavaSerializer
+2017-05-20 22:07:39,340  INFO SparkEnv - Registering MapOutputTracker
+2017-05-20 22:07:39,350  INFO SparkEnv - Registering BlockManagerMaster
+2017-05-20 22:07:39,359  INFO DiskBlockManager - Created local directory at /tmp/blockmgr-e1c91bac-fc7d-431c-980e-cf13f6796f8d
+2017-05-20 22:07:39,369  INFO MemoryStore - MemoryStore started with capacity 21.3 GB
+2017-05-20 22:07:39,403  INFO SparkEnv - Registering OutputCommitCoordinator
+2017-05-20 22:07:39,453 DEBUG log - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.spark-project.jetty.util.log) via org.spark-project.jetty.util.log.Slf4jLog
+2017-05-20 22:07:39,463 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,463 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,463 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,463 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-d02e364}
+2017-05-20 22:07:39,463 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-d02e364=org.apache.spark.ui.JettyUtils$$anon$1-d02e364}
+2017-05-20 22:07:39,464 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,464 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,464 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,464 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-13046e63}
+2017-05-20 22:07:39,464 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-13046e63=org.apache.spark.ui.JettyUtils$$anon$1-13046e63}
+2017-05-20 22:07:39,464 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,464 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,464 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,464 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8}
+2017-05-20 22:07:39,464 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8=org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-5a09674c}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-5a09674c=org.apache.spark.ui.JettyUtils$$anon$1-5a09674c}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f=org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-2f759399}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-2f759399=org.apache.spark.ui.JettyUtils$$anon$1-2f759399}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-1a47490c}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-1a47490c=org.apache.spark.ui.JettyUtils$$anon$1-1a47490c}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-4a834762}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-4a834762=org.apache.spark.ui.JettyUtils$$anon$1-4a834762}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3}
+2017-05-20 22:07:39,465 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3=org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3}
+2017-05-20 22:07:39,466 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,466 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,466 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,466 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3}
+2017-05-20 22:07:39,466 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3=org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3}
+2017-05-20 22:07:39,468 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,468 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,468 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,468 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-208d70d8}
+2017-05-20 22:07:39,468 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-208d70d8=org.apache.spark.ui.JettyUtils$$anon$1-208d70d8}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6=org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-46281d4f}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-46281d4f=org.apache.spark.ui.JettyUtils$$anon$1-46281d4f}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-d68aee2}
+2017-05-20 22:07:39,469 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-d68aee2=org.apache.spark.ui.JettyUtils$$anon$1-d68aee2}
+2017-05-20 22:07:39,470 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,470 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,470 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,470 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-46bef701}
+2017-05-20 22:07:39,470 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-46bef701=org.apache.spark.ui.JettyUtils$$anon$1-46bef701}
+2017-05-20 22:07:39,470 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,470 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,470 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,470 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985}
+2017-05-20 22:07:39,470 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985=org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-45b12fe}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-45b12fe=org.apache.spark.ui.JettyUtils$$anon$1-45b12fe}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-79ff0752}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-79ff0752=org.apache.spark.ui.JettyUtils$$anon$1-79ff0752}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-ab0562f}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-ab0562f=org.apache.spark.ui.JettyUtils$$anon$1-ab0562f}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-56206965}
+2017-05-20 22:07:39,472 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-56206965=org.apache.spark.ui.JettyUtils$$anon$1-56206965}
+2017-05-20 22:07:39,475 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,475 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,475 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,475 DEBUG ServletHandler - servletPathMap={/=org.spark-project.jetty.servlet.DefaultServlet-6f8f7705}
+2017-05-20 22:07:39,475 DEBUG ServletHandler - servletNameMap={org.spark-project.jetty.servlet.DefaultServlet-6f8f7705=org.spark-project.jetty.servlet.DefaultServlet-6f8f7705}
+2017-05-20 22:07:39,476 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,476 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,476 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,476 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32}
+2017-05-20 22:07:39,476 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32=org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32}
+2017-05-20 22:07:39,477 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,477 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,478 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,478 DEBUG ServletHandler - servletPathMap={/*=com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0}
+2017-05-20 22:07:39,478 DEBUG ServletHandler - servletNameMap={com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0=com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0}
+2017-05-20 22:07:39,478 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,478 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,478 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,478 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7}
+2017-05-20 22:07:39,478 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7=org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7}
+2017-05-20 22:07:39,491 DEBUG Container - Container org.spark-project.jetty.server.Server@7e76581d + SelectChannelConnector@0.0.0.0:4040 as connector
+2017-05-20 22:07:39,494 DEBUG Container - Container org.spark-project.jetty.server.Server@7e76581d + qtp1614747575{8<=0<=0/254,-1} as threadpool
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@200c3b1e + o.s.j.s.ServletContextHandler{/jobs,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c + o.s.j.s.ServletContextHandler{/jobs/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@609cdeac + o.s.j.s.ServletContextHandler{/jobs/job,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@33a66c88 + o.s.j.s.ServletContextHandler{/jobs/job/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@72b37529 + o.s.j.s.ServletContextHandler{/stages,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@a79f319 + o.s.j.s.ServletContextHandler{/stages/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@c963544 + o.s.j.s.ServletContextHandler{/stages/stage,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@c54da72 + o.s.j.s.ServletContextHandler{/stages/stage/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@6527fcec + o.s.j.s.ServletContextHandler{/stages/pool,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@20832a6a + o.s.j.s.ServletContextHandler{/stages/pool/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@1d02072b + o.s.j.s.ServletContextHandler{/storage,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@372fd9b3 + o.s.j.s.ServletContextHandler{/storage/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@6db58326 + o.s.j.s.ServletContextHandler{/storage/rdd,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@545c2480 + o.s.j.s.ServletContextHandler{/storage/rdd/json,null} as handler
+2017-05-20 22:07:39,495 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f + o.s.j.s.ServletContextHandler{/environment,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@1041f2b0 + o.s.j.s.ServletContextHandler{/environment/json,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@512cff2d + o.s.j.s.ServletContextHandler{/executors,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac + o.s.j.s.ServletContextHandler{/executors/json,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@6fd3befd + o.s.j.s.ServletContextHandler{/executors/threadDump,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@709815c5 + o.s.j.s.ServletContextHandler{/executors/threadDump/json,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@467b496c + o.s.j.s.ServletContextHandler{/static,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6 + o.s.j.s.ServletContextHandler{/,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@5de8438a + o.s.j.s.ServletContextHandler{/api,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.GzipHandler@6dee53cf + o.s.j.s.ServletContextHandler{/stages/stage/kill,null} as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@200c3b1e as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@609cdeac as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@33a66c88 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@72b37529 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@a79f319 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@c963544 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@c54da72 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@6527fcec as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@20832a6a as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@1d02072b as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@372fd9b3 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@6db58326 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@545c2480 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@1041f2b0 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@512cff2d as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@6fd3befd as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@709815c5 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@467b496c as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6 as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@5de8438a as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + org.spark-project.jetty.server.handler.GzipHandler@6dee53cf as handler
+2017-05-20 22:07:39,496 DEBUG Container - Container org.spark-project.jetty.server.Server@7e76581d + org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 as handler
+2017-05-20 22:07:39,496 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.Server@7e76581d
+2017-05-20 22:07:39,498  INFO Server - jetty-8.y.z-SNAPSHOT
+2017-05-20 22:07:39,505 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737
+2017-05-20 22:07:39,505 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@200c3b1e
+2017-05-20 22:07:39,505 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:39,512 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@791b074c + org.apache.spark.ui.JettyUtils$$anon$1-d02e364 as servlet
+2017-05-20 22:07:39,512 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@791b074c + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-d02e364 as servletMapping
+2017-05-20 22:07:39,512 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs,null} + org.spark-project.jetty.servlet.ServletHandler@791b074c as handler
+2017-05-20 22:07:39,512 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@791b074c
+2017-05-20 22:07:39,513 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,513 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,513 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,513 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-d02e364}
+2017-05-20 22:07:39,513 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-d02e364=org.apache.spark.ui.JettyUtils$$anon$1-d02e364}
+2017-05-20 22:07:39,513 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@791b074c
+2017-05-20 22:07:39,513 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@791b074c
+2017-05-20 22:07:39,513 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:39,513 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-d02e364
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-d02e364
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:39,514 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@200c3b1e
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@200c3b1e
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:39,514 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@73d17169 + org.apache.spark.ui.JettyUtils$$anon$1-13046e63 as servlet
+2017-05-20 22:07:39,514 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@73d17169 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-13046e63 as servletMapping
+2017-05-20 22:07:39,514 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs/json,null} + org.spark-project.jetty.servlet.ServletHandler@73d17169 as handler
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@73d17169
+2017-05-20 22:07:39,514 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,514 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,514 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,514 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-13046e63}
+2017-05-20 22:07:39,514 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-13046e63=org.apache.spark.ui.JettyUtils$$anon$1-13046e63}
+2017-05-20 22:07:39,514 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@73d17169
+2017-05-20 22:07:39,514 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@73d17169
+2017-05-20 22:07:39,515 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-13046e63
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-13046e63
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:39,515 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@609cdeac
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:39,515 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@4e5da29 + org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8 as servlet
+2017-05-20 22:07:39,515 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@4e5da29 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8 as servletMapping
+2017-05-20 22:07:39,515 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs/job,null} + org.spark-project.jetty.servlet.ServletHandler@4e5da29 as handler
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@4e5da29
+2017-05-20 22:07:39,515 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,515 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,515 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,515 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8}
+2017-05-20 22:07:39,515 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8=org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8}
+2017-05-20 22:07:39,515 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@4e5da29
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@4e5da29
+2017-05-20 22:07:39,515 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:39,515 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@609cdeac
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@609cdeac
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@33a66c88
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:39,515 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@550c5c3b + org.apache.spark.ui.JettyUtils$$anon$1-5a09674c as servlet
+2017-05-20 22:07:39,515 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@550c5c3b + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-5a09674c as servletMapping
+2017-05-20 22:07:39,515 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs/job/json,null} + org.spark-project.jetty.servlet.ServletHandler@550c5c3b as handler
+2017-05-20 22:07:39,515 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@550c5c3b
+2017-05-20 22:07:39,515 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,516 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,516 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,516 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-5a09674c}
+2017-05-20 22:07:39,516 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-5a09674c=org.apache.spark.ui.JettyUtils$$anon$1-5a09674c}
+2017-05-20 22:07:39,516 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@550c5c3b
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@550c5c3b
+2017-05-20 22:07:39,516 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-5a09674c
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-5a09674c
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:39,516 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@33a66c88
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@33a66c88
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@72b37529
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:39,516 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@4de637d9 + org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f as servlet
+2017-05-20 22:07:39,516 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@4de637d9 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f as servletMapping
+2017-05-20 22:07:39,516 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages,null} + org.spark-project.jetty.servlet.ServletHandler@4de637d9 as handler
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@4de637d9
+2017-05-20 22:07:39,516 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,516 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,516 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,516 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f}
+2017-05-20 22:07:39,516 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f=org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f}
+2017-05-20 22:07:39,516 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@4de637d9
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@4de637d9
+2017-05-20 22:07:39,516 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:39,516 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@72b37529
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@72b37529
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@a79f319
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:39,516 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@35c45d35 + org.apache.spark.ui.JettyUtils$$anon$1-2f759399 as servlet
+2017-05-20 22:07:39,516 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@35c45d35 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-2f759399 as servletMapping
+2017-05-20 22:07:39,516 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/json,null} + org.spark-project.jetty.servlet.ServletHandler@35c45d35 as handler
+2017-05-20 22:07:39,516 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@35c45d35
+2017-05-20 22:07:39,516 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,516 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,517 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,517 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-2f759399}
+2017-05-20 22:07:39,517 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-2f759399=org.apache.spark.ui.JettyUtils$$anon$1-2f759399}
+2017-05-20 22:07:39,517 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@35c45d35
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@35c45d35
+2017-05-20 22:07:39,517 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-2f759399
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-2f759399
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:39,517 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@a79f319
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@a79f319
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@c963544
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:39,517 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@1f5afd36 + org.apache.spark.ui.JettyUtils$$anon$1-1a47490c as servlet
+2017-05-20 22:07:39,517 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@1f5afd36 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-1a47490c as servletMapping
+2017-05-20 22:07:39,517 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/stage,null} + org.spark-project.jetty.servlet.ServletHandler@1f5afd36 as handler
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@1f5afd36
+2017-05-20 22:07:39,517 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,517 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,517 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,517 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-1a47490c}
+2017-05-20 22:07:39,517 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-1a47490c=org.apache.spark.ui.JettyUtils$$anon$1-1a47490c}
+2017-05-20 22:07:39,517 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@1f5afd36
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@1f5afd36
+2017-05-20 22:07:39,517 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-1a47490c
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-1a47490c
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:39,517 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@c963544
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@c963544
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@c54da72
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:39,517 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@28808762 + org.apache.spark.ui.JettyUtils$$anon$1-4a834762 as servlet
+2017-05-20 22:07:39,517 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@28808762 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-4a834762 as servletMapping
+2017-05-20 22:07:39,517 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/stage/json,null} + org.spark-project.jetty.servlet.ServletHandler@28808762 as handler
+2017-05-20 22:07:39,517 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@28808762
+2017-05-20 22:07:39,517 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,517 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-4a834762}
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-4a834762=org.apache.spark.ui.JettyUtils$$anon$1-4a834762}
+2017-05-20 22:07:39,518 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@28808762
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@28808762
+2017-05-20 22:07:39,518 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-4a834762
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-4a834762
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:39,518 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@c54da72
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@c54da72
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@6527fcec
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:39,518 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@54a43554 + org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3 as servlet
+2017-05-20 22:07:39,518 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@54a43554 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3 as servletMapping
+2017-05-20 22:07:39,518 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/pool,null} + org.spark-project.jetty.servlet.ServletHandler@54a43554 as handler
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@54a43554
+2017-05-20 22:07:39,518 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,518 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3}
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3=org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3}
+2017-05-20 22:07:39,518 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@54a43554
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@54a43554
+2017-05-20 22:07:39,518 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:39,518 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@6527fcec
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@6527fcec
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@20832a6a
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:39,518 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@439ef700 + org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3 as servlet
+2017-05-20 22:07:39,518 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@439ef700 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3 as servletMapping
+2017-05-20 22:07:39,518 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/pool/json,null} + org.spark-project.jetty.servlet.ServletHandler@439ef700 as handler
+2017-05-20 22:07:39,518 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@439ef700
+2017-05-20 22:07:39,518 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,518 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3}
+2017-05-20 22:07:39,518 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3=org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3}
+2017-05-20 22:07:39,519 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@439ef700
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@439ef700
+2017-05-20 22:07:39,519 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:39,519 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@20832a6a
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@20832a6a
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@1d02072b
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:39,519 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@b651108 + org.apache.spark.ui.JettyUtils$$anon$1-208d70d8 as servlet
+2017-05-20 22:07:39,519 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@b651108 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-208d70d8 as servletMapping
+2017-05-20 22:07:39,519 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage,null} + org.spark-project.jetty.servlet.ServletHandler@b651108 as handler
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@b651108
+2017-05-20 22:07:39,519 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,519 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,519 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,519 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-208d70d8}
+2017-05-20 22:07:39,519 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-208d70d8=org.apache.spark.ui.JettyUtils$$anon$1-208d70d8}
+2017-05-20 22:07:39,519 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@b651108
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@b651108
+2017-05-20 22:07:39,519 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-208d70d8
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-208d70d8
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:39,519 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@1d02072b
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@1d02072b
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@372fd9b3
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:39,519 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@27722c91 + org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6 as servlet
+2017-05-20 22:07:39,519 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@27722c91 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6 as servletMapping
+2017-05-20 22:07:39,519 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage/json,null} + org.spark-project.jetty.servlet.ServletHandler@27722c91 as handler
+2017-05-20 22:07:39,519 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@27722c91
+2017-05-20 22:07:39,519 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,519 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,519 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,519 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6}
+2017-05-20 22:07:39,519 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6=org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6}
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@27722c91
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@27722c91
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@372fd9b3
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@372fd9b3
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@6db58326
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:39,520 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@5289b3be + org.apache.spark.ui.JettyUtils$$anon$1-46281d4f as servlet
+2017-05-20 22:07:39,520 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@5289b3be + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-46281d4f as servletMapping
+2017-05-20 22:07:39,520 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage/rdd,null} + org.spark-project.jetty.servlet.ServletHandler@5289b3be as handler
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@5289b3be
+2017-05-20 22:07:39,520 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,520 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,520 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,520 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-46281d4f}
+2017-05-20 22:07:39,520 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-46281d4f=org.apache.spark.ui.JettyUtils$$anon$1-46281d4f}
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@5289b3be
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@5289b3be
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-46281d4f
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-46281d4f
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@6db58326
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@6db58326
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@545c2480
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:39,520 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@669b7818 + org.apache.spark.ui.JettyUtils$$anon$1-d68aee2 as servlet
+2017-05-20 22:07:39,520 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@669b7818 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-d68aee2 as servletMapping
+2017-05-20 22:07:39,520 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage/rdd/json,null} + org.spark-project.jetty.servlet.ServletHandler@669b7818 as handler
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@669b7818
+2017-05-20 22:07:39,520 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,520 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,520 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,520 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-d68aee2}
+2017-05-20 22:07:39,520 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-d68aee2=org.apache.spark.ui.JettyUtils$$anon$1-d68aee2}
+2017-05-20 22:07:39,520 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@669b7818
+2017-05-20 22:07:39,520 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@669b7818
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-d68aee2
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-d68aee2
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@545c2480
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@545c2480
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:39,521 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@45d5d892 + org.apache.spark.ui.JettyUtils$$anon$1-46bef701 as servlet
+2017-05-20 22:07:39,521 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@45d5d892 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-46bef701 as servletMapping
+2017-05-20 22:07:39,521 DEBUG Container - Container o.s.j.s.ServletContextHandler{/environment,null} + org.spark-project.jetty.servlet.ServletHandler@45d5d892 as handler
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@45d5d892
+2017-05-20 22:07:39,521 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,521 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,521 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,521 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-46bef701}
+2017-05-20 22:07:39,521 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-46bef701=org.apache.spark.ui.JettyUtils$$anon$1-46bef701}
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@45d5d892
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@45d5d892
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-46bef701
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-46bef701
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@1041f2b0
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:39,521 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@7375621d + org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985 as servlet
+2017-05-20 22:07:39,521 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@7375621d + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985 as servletMapping
+2017-05-20 22:07:39,521 DEBUG Container - Container o.s.j.s.ServletContextHandler{/environment/json,null} + org.spark-project.jetty.servlet.ServletHandler@7375621d as handler
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@7375621d
+2017-05-20 22:07:39,521 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,521 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,521 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,521 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985}
+2017-05-20 22:07:39,521 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985=org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985}
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@7375621d
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@7375621d
+2017-05-20 22:07:39,521 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:39,521 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@1041f2b0
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@1041f2b0
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@512cff2d
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:39,522 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e + org.apache.spark.ui.JettyUtils$$anon$1-45b12fe as servlet
+2017-05-20 22:07:39,522 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-45b12fe as servletMapping
+2017-05-20 22:07:39,522 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors,null} + org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e as handler
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e
+2017-05-20 22:07:39,522 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,522 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,522 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,522 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-45b12fe}
+2017-05-20 22:07:39,522 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-45b12fe=org.apache.spark.ui.JettyUtils$$anon$1-45b12fe}
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-45b12fe
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-45b12fe
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@512cff2d
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@512cff2d
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:39,522 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@5198c5b1 + org.apache.spark.ui.JettyUtils$$anon$1-79ff0752 as servlet
+2017-05-20 22:07:39,522 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@5198c5b1 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-79ff0752 as servletMapping
+2017-05-20 22:07:39,522 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors/json,null} + org.spark-project.jetty.servlet.ServletHandler@5198c5b1 as handler
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@5198c5b1
+2017-05-20 22:07:39,522 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,522 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,522 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,522 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-79ff0752}
+2017-05-20 22:07:39,522 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-79ff0752=org.apache.spark.ui.JettyUtils$$anon$1-79ff0752}
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@5198c5b1
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@5198c5b1
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-79ff0752
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-79ff0752
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:39,522 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac
+2017-05-20 22:07:39,522 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@6fd3befd
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:39,523 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@3a629658 + org.apache.spark.ui.JettyUtils$$anon$1-ab0562f as servlet
+2017-05-20 22:07:39,523 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@3a629658 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-ab0562f as servletMapping
+2017-05-20 22:07:39,523 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors/threadDump,null} + org.spark-project.jetty.servlet.ServletHandler@3a629658 as handler
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@3a629658
+2017-05-20 22:07:39,523 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,523 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-ab0562f}
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-ab0562f=org.apache.spark.ui.JettyUtils$$anon$1-ab0562f}
+2017-05-20 22:07:39,523 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@3a629658
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@3a629658
+2017-05-20 22:07:39,523 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-ab0562f
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-ab0562f
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:39,523 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@6fd3befd
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@6fd3befd
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@709815c5
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:39,523 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@625f6e83 + org.apache.spark.ui.JettyUtils$$anon$1-56206965 as servlet
+2017-05-20 22:07:39,523 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@625f6e83 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-56206965 as servletMapping
+2017-05-20 22:07:39,523 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors/threadDump/json,null} + org.spark-project.jetty.servlet.ServletHandler@625f6e83 as handler
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@625f6e83
+2017-05-20 22:07:39,523 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,523 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-56206965}
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-56206965=org.apache.spark.ui.JettyUtils$$anon$1-56206965}
+2017-05-20 22:07:39,523 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@625f6e83
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@625f6e83
+2017-05-20 22:07:39,523 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-56206965
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-56206965
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:39,523 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@709815c5
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@709815c5
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@467b496c
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:39,523 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@7f608b1d + org.spark-project.jetty.servlet.DefaultServlet-6f8f7705 as servlet
+2017-05-20 22:07:39,523 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@7f608b1d + [/]=>org.spark-project.jetty.servlet.DefaultServlet-6f8f7705 as servletMapping
+2017-05-20 22:07:39,523 DEBUG Container - Container o.s.j.s.ServletContextHandler{/static,null} + org.spark-project.jetty.servlet.ServletHandler@7f608b1d as handler
+2017-05-20 22:07:39,523 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@7f608b1d
+2017-05-20 22:07:39,523 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,523 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletPathMap={/=org.spark-project.jetty.servlet.DefaultServlet-6f8f7705}
+2017-05-20 22:07:39,523 DEBUG ServletHandler - servletNameMap={org.spark-project.jetty.servlet.DefaultServlet-6f8f7705=org.spark-project.jetty.servlet.DefaultServlet-6f8f7705}
+2017-05-20 22:07:39,524 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@7f608b1d
+2017-05-20 22:07:39,524 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@7f608b1d
+2017-05-20 22:07:39,524 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:39,524 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.DefaultServlet-6f8f7705
+2017-05-20 22:07:39,527 DEBUG DefaultServlet - resource base = jar:file:/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6/lib/spark-assembly-1.6.0-hadoop2.6.0.jar!/org/apache/spark/ui/static
+2017-05-20 22:07:39,527 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.DefaultServlet-6f8f7705
+2017-05-20 22:07:39,527 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:39,527 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@467b496c
+2017-05-20 22:07:39,527 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@467b496c
+2017-05-20 22:07:39,527 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6
+2017-05-20 22:07:39,527 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:39,528 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@168d894c + org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32 as servlet
+2017-05-20 22:07:39,528 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@168d894c + [/]=>org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32 as servletMapping
+2017-05-20 22:07:39,528 DEBUG Container - Container o.s.j.s.ServletContextHandler{/,null} + org.spark-project.jetty.servlet.ServletHandler@168d894c as handler
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@168d894c
+2017-05-20 22:07:39,528 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,528 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32}
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32=org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32}
+2017-05-20 22:07:39,528 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@168d894c
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@168d894c
+2017-05-20 22:07:39,528 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:39,528 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@5de8438a
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:39,528 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@2a0b69ef + com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0 as servlet
+2017-05-20 22:07:39,528 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@2a0b69ef + [/*]=>com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0 as servletMapping
+2017-05-20 22:07:39,528 DEBUG Container - Container o.s.j.s.ServletContextHandler{/api,null} + org.spark-project.jetty.servlet.ServletHandler@2a0b69ef as handler
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@2a0b69ef
+2017-05-20 22:07:39,528 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,528 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletPathMap={/*=com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0}
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletNameMap={com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0=com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0}
+2017-05-20 22:07:39,528 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@2a0b69ef
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@2a0b69ef
+2017-05-20 22:07:39,528 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:39,528 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@5de8438a
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@5de8438a
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.GzipHandler@6dee53cf
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:39,528 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@159aa890 + org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7 as servlet
+2017-05-20 22:07:39,528 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@159aa890 + [/]=>org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7 as servletMapping
+2017-05-20 22:07:39,528 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/stage/kill,null} + org.spark-project.jetty.servlet.ServletHandler@159aa890 as handler
+2017-05-20 22:07:39,528 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@159aa890
+2017-05-20 22:07:39,528 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,528 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,528 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7}
+2017-05-20 22:07:39,529 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7=org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7}
+2017-05-20 22:07:39,529 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@159aa890
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@159aa890
+2017-05-20 22:07:39,529 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:39,529 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.GzipHandler@6dee53cf
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.GzipHandler@6dee53cf
+2017-05-20 22:07:39,529 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737
+2017-05-20 22:07:39,529 DEBUG AbstractHandler - starting org.spark-project.jetty.server.Server@7e76581d
+2017-05-20 22:07:39,529 DEBUG AbstractLifeCycle - starting qtp1614747575{8<=0<=0/254,-1}
+2017-05-20 22:07:39,531 DEBUG AbstractLifeCycle - STARTED qtp1614747575{8<=7<=8/254,0}
+2017-05-20 22:07:39,531 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.ErrorHandler@16ff5c50
+2017-05-20 22:07:39,531 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.ErrorHandler@16ff5c50
+2017-05-20 22:07:39,531 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.ErrorHandler@16ff5c50
+2017-05-20 22:07:39,531 DEBUG AbstractLifeCycle - starting SelectChannelConnector@0.0.0.0:4040
+2017-05-20 22:07:39,532 DEBUG AbstractLifeCycle - starting null/null
+2017-05-20 22:07:39,533 DEBUG AbstractLifeCycle - STARTED PooledBuffers [0/1024@6144,0/1024@16384,0/1024@-]/PooledBuffers [0/1024@6144,0/1024@32768,0/1024@-]
+2017-05-20 22:07:39,533 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@61a8a3ad
+2017-05-20 22:07:39,535 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@61a8a3ad
+2017-05-20 22:07:39,535 DEBUG nio - Starting Thread[qtp1614747575-65 Selector0,5,main] on org.spark-project.jetty.io.nio.SelectorManager$1@44ec1854
+2017-05-20 22:07:39,535 DEBUG nio - Starting Thread[qtp1614747575-66 Selector1,5,main] on org.spark-project.jetty.io.nio.SelectorManager$1@25ae91d2
+2017-05-20 22:07:39,536  INFO AbstractConnector - Started SelectChannelConnector@0.0.0.0:4040
+2017-05-20 22:07:39,536 DEBUG AbstractLifeCycle - STARTED SelectChannelConnector@0.0.0.0:4040
+2017-05-20 22:07:39,536 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.Server@7e76581d
+2017-05-20 22:07:39,536  INFO Utils - Successfully started service 'SparkUI' on port 4040.
+2017-05-20 22:07:39,537  INFO SparkUI - Started SparkUI at http://172.19.73.74:4040
+2017-05-20 22:07:39,550  INFO HttpFileServer - HTTP File server directory is /tmp/spark-dcab4156-5e65-4529-90e2-d8ffda7f1b03/httpd-fbc302e3-97e7-460b-a38b-c3042652c350
+2017-05-20 22:07:39,551  INFO HttpServer - Starting HTTP Server
+2017-05-20 22:07:39,552 DEBUG Container - Container org.spark-project.jetty.server.Server@58258d87 + SocketConnector@0.0.0.0:0 as connector
+2017-05-20 22:07:39,552 DEBUG Container - Container org.spark-project.jetty.server.Server@58258d87 + qtp629120587{8<=0<=0/254,-1} as threadpool
+2017-05-20 22:07:39,556 DEBUG HttpServer - HttpServer is not using security
+2017-05-20 22:07:39,556 DEBUG Container - Container org.spark-project.jetty.server.handler.HandlerList@46163643 + org.spark-project.jetty.server.handler.ResourceHandler@43747f0a as handler
+2017-05-20 22:07:39,556 DEBUG Container - Container org.spark-project.jetty.server.handler.HandlerList@46163643 + org.spark-project.jetty.server.handler.DefaultHandler@6b6baf7c as handler
+2017-05-20 22:07:39,556 DEBUG Container - Container org.spark-project.jetty.server.Server@58258d87 + org.spark-project.jetty.server.handler.HandlerList@46163643 as handler
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.Server@58258d87
+2017-05-20 22:07:39,556  INFO Server - jetty-8.y.z-SNAPSHOT
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.HandlerList@46163643
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.ResourceHandler@43747f0a
+2017-05-20 22:07:39,556 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.ResourceHandler@43747f0a
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.ResourceHandler@43747f0a
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.server.handler.DefaultHandler@6b6baf7c
+2017-05-20 22:07:39,556 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.DefaultHandler@6b6baf7c
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.DefaultHandler@6b6baf7c
+2017-05-20 22:07:39,556 DEBUG AbstractHandler - starting org.spark-project.jetty.server.handler.HandlerList@46163643
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.handler.HandlerList@46163643
+2017-05-20 22:07:39,556 DEBUG AbstractHandler - starting org.spark-project.jetty.server.Server@58258d87
+2017-05-20 22:07:39,556 DEBUG AbstractLifeCycle - starting qtp629120587{8<=0<=0/254,-1}
+2017-05-20 22:07:39,557 DEBUG AbstractLifeCycle - STARTED qtp629120587{8<=7<=8/254,0}
+2017-05-20 22:07:39,557 DEBUG AbstractLifeCycle - starting SocketConnector@0.0.0.0:0
+2017-05-20 22:07:39,557 DEBUG AbstractLifeCycle - starting null/null
+2017-05-20 22:07:39,557 DEBUG AbstractLifeCycle - STARTED PooledBuffers [0/1024@6144,0/1024@16384,0/1024@-]/PooledBuffers [0/1024@6144,0/1024@32768,0/1024@-]
+2017-05-20 22:07:39,557  INFO AbstractConnector - Started SocketConnector@0.0.0.0:45104
+2017-05-20 22:07:39,557 DEBUG AbstractLifeCycle - STARTED SocketConnector@0.0.0.0:45104
+2017-05-20 22:07:39,557 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.server.Server@58258d87
+2017-05-20 22:07:39,557  INFO Utils - Successfully started service 'HTTP file server' on port 45104.
+2017-05-20 22:07:39,558 DEBUG HttpFileServer - HTTP file server started at: http://172.19.73.74:45104
+2017-05-20 22:07:39,566  INFO SparkContext - Added JAR file:/usr/local/lib/mysql-connector-java-5.1.38.jar at http://172.19.73.74:45104/jars/mysql-connector-java-5.1.38.jar with timestamp 1495285659566
+2017-05-20 22:07:39,591 DEBUG  - address: Gemini/127.0.1.1 isLoopbackAddress: true, with host 127.0.1.1 Gemini
+2017-05-20 22:07:39,596 DEBUG NativeLibraryLoader - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+2017-05-20 22:07:39,596 DEBUG NativeLibraryLoader - -Dio.netty.netty.workdir: /tmp (io.netty.tmpdir)
+2017-05-20 22:07:39,627  INFO Utils - Copying /home/ozu/program/test/tensorFlow_test/test_cases/workspace/../../wikitext/test.py to /tmp/spark-dcab4156-5e65-4529-90e2-d8ffda7f1b03/userFiles-e32fb779-82d1-40f3-b401-46f4edc948dc/test.py
+2017-05-20 22:07:39,630  INFO SparkContext - Added file file:/home/ozu/program/test/tensorFlow_test/test_cases/workspace/../../wikitext/test.py at http://172.19.73.74:45104/files/test.py with timestamp 1495285659626
+2017-05-20 22:07:39,668  INFO AppClient$ClientEndpoint - Connecting to master spark://172.19.73.74:7077...
+2017-05-20 22:07:39,681 DEBUG TransportClientFactory - Creating new connection to /172.19.73.74:7077
+2017-05-20 22:07:39,692 DEBUG ResourceLeakDetector - -Dio.netty.leakDetectionLevel: simple
+2017-05-20 22:07:39,695 DEBUG TransportClientFactory - Connection to /172.19.73.74:7077 successful, running bootstraps...
+2017-05-20 22:07:39,695 DEBUG TransportClientFactory - Successfully created connection to /172.19.73.74:7077 after 13 ms (0 ms spent in bootstraps)
+2017-05-20 22:07:39,698 DEBUG Recycler - -Dio.netty.recycler.maxCapacity.default: 262144
+2017-05-20 22:07:39,747  INFO SparkDeploySchedulerBackend - Connected to Spark cluster with app ID app-20170520220739-0128
+2017-05-20 22:07:39,751  INFO AppClient$ClientEndpoint - Executor added: app-20170520220739-0128/0 on worker-20170520142557-172.19.73.73-34266 (172.19.73.73:34266) with 7 cores
+2017-05-20 22:07:39,751  INFO SparkDeploySchedulerBackend - Granted executor ID app-20170520220739-0128/0 on hostPort 172.19.73.73:34266 with 7 cores, 1024.0 MB RAM
+2017-05-20 22:07:39,751  INFO AppClient$ClientEndpoint - Executor added: app-20170520220739-0128/1 on worker-20170520134222-10.0.2.15-36207 (10.0.2.15:36207) with 4 cores
+2017-05-20 22:07:39,752  INFO SparkDeploySchedulerBackend - Granted executor ID app-20170520220739-0128/1 on hostPort 10.0.2.15:36207 with 4 cores, 1024.0 MB RAM
+2017-05-20 22:07:39,753 DEBUG TransportServer - Shuffle server started on port :39385
+2017-05-20 22:07:39,753  INFO Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39385.
+2017-05-20 22:07:39,753  INFO NettyBlockTransferService - Server created on 39385
+2017-05-20 22:07:39,754  INFO BlockManagerMaster - Trying to register BlockManager
+2017-05-20 22:07:39,756  INFO BlockManagerMasterEndpoint - Registering block manager 172.19.73.74:39385 with 21.3 GB RAM, BlockManagerId(driver, 172.19.73.74, 39385)
+2017-05-20 22:07:39,757  INFO BlockManagerMaster - Registered BlockManager
+2017-05-20 22:07:39,760  INFO AppClient$ClientEndpoint - Executor updated: app-20170520220739-0128/0 is now RUNNING
+2017-05-20 22:07:39,761  INFO AppClient$ClientEndpoint - Executor updated: app-20170520220739-0128/1 is now RUNNING
+2017-05-20 22:07:39,893 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,893 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,893 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,893 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-17b8739d}
+2017-05-20 22:07:39,893 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-17b8739d=org.apache.spark.ui.JettyUtils$$anon$1-17b8739d}
+2017-05-20 22:07:39,894 DEBUG Container - Container org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737 + o.s.j.s.ServletContextHandler{/metrics/json,null} as handler
+2017-05-20 22:07:39,894 DEBUG AbstractLifeCycle - starting o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:39,894 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@2d95f239 + org.apache.spark.ui.JettyUtils$$anon$1-17b8739d as servlet
+2017-05-20 22:07:39,894 DEBUG Container - Container org.spark-project.jetty.servlet.ServletHandler@2d95f239 + [/]=>org.apache.spark.ui.JettyUtils$$anon$1-17b8739d as servletMapping
+2017-05-20 22:07:39,894 DEBUG Container - Container o.s.j.s.ServletContextHandler{/metrics/json,null} + org.spark-project.jetty.servlet.ServletHandler@2d95f239 as handler
+2017-05-20 22:07:39,894 DEBUG AbstractLifeCycle - starting org.spark-project.jetty.servlet.ServletHandler@2d95f239
+2017-05-20 22:07:39,894 DEBUG ServletHandler - filterNameMap={}
+2017-05-20 22:07:39,894 DEBUG ServletHandler - pathFilters=null
+2017-05-20 22:07:39,894 DEBUG ServletHandler - servletFilterMap=null
+2017-05-20 22:07:39,894 DEBUG ServletHandler - servletPathMap={/=org.apache.spark.ui.JettyUtils$$anon$1-17b8739d}
+2017-05-20 22:07:39,894 DEBUG ServletHandler - servletNameMap={org.apache.spark.ui.JettyUtils$$anon$1-17b8739d=org.apache.spark.ui.JettyUtils$$anon$1-17b8739d}
+2017-05-20 22:07:39,894 DEBUG AbstractHandler - starting org.spark-project.jetty.servlet.ServletHandler@2d95f239
+2017-05-20 22:07:39,894 DEBUG AbstractLifeCycle - STARTED org.spark-project.jetty.servlet.ServletHandler@2d95f239
+2017-05-20 22:07:39,894 DEBUG AbstractHandler - starting o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:39,894 DEBUG AbstractLifeCycle - starting org.apache.spark.ui.JettyUtils$$anon$1-17b8739d
+2017-05-20 22:07:39,894 DEBUG AbstractLifeCycle - STARTED org.apache.spark.ui.JettyUtils$$anon$1-17b8739d
+2017-05-20 22:07:39,894 DEBUG AbstractLifeCycle - STARTED o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:39,903  INFO SparkDeploySchedulerBackend - SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+2017-05-20 22:07:39,927 DEBUG root - this is debug
+2017-05-20 22:07:39,927  INFO root - this is info
+2017-05-20 22:07:39,927 ERROR root - this is error
+2017-05-20 22:07:39,998  INFO SparkContext - Invoking stop() from shutdown hook
+2017-05-20 22:07:39,999 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.Server@7e76581d
+2017-05-20 22:07:39,999 DEBUG AbstractLifeCycle - stopping SelectChannelConnector@0.0.0.0:4040
+2017-05-20 22:07:39,999 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@61a8a3ad
+2017-05-20 22:07:39,999 DEBUG nio - Stopped Thread[qtp1614747575-65 Selector0,5,main] on org.spark-project.jetty.io.nio.SelectorManager$1@44ec1854
+2017-05-20 22:07:40,010 DEBUG nio - Stopped Thread[qtp1614747575-66 Selector1,5,main] on org.spark-project.jetty.io.nio.SelectorManager$1@25ae91d2
+2017-05-20 22:07:40,020 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@61a8a3ad
+2017-05-20 22:07:40,021 DEBUG AbstractLifeCycle - stopping PooledBuffers [0/1024@6144,0/1024@16384,0/1024@-]/PooledBuffers [0/1024@6144,0/1024@32768,0/1024@-]
+2017-05-20 22:07:40,021 DEBUG AbstractLifeCycle - STOPPED null/null
+2017-05-20 22:07:40,021 DEBUG AbstractLifeCycle - STOPPED SelectChannelConnector@0.0.0.0:4040
+2017-05-20 22:07:40,021 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737
+2017-05-20 22:07:40,022 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737
+2017-05-20 22:07:40,022 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:40,022 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@2d95f239
+2017-05-20 22:07:40,022 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@2d95f239
+2017-05-20 22:07:40,023 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-17b8739d
+2017-05-20 22:07:40,024 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-17b8739d
+2017-05-20 22:07:40,024 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@2d95f239
+2017-05-20 22:07:40,024 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:40,024  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:40,024 DEBUG Container - Container o.s.j.s.ServletContextHandler{/metrics/json,null} - org.spark-project.jetty.servlet.ServletHandler@2d95f239 as handler
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/metrics/json,null}
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@6dee53cf
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@159aa890
+2017-05-20 22:07:40,025 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@159aa890
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$2-24bf57f7
+2017-05-20 22:07:40,025 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@159aa890
+2017-05-20 22:07:40,025 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:40,025  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:40,025 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/stage/kill,null} - org.spark-project.jetty.servlet.ServletHandler@159aa890 as handler
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2017-05-20 22:07:40,026 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@6dee53cf
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@6dee53cf
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@5de8438a
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@2a0b69ef
+2017-05-20 22:07:40,026 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@2a0b69ef
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - stopping com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - STOPPED com.sun.jersey.spi.container.servlet.ServletContainer-19990cd0
+2017-05-20 22:07:40,026 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@2a0b69ef
+2017-05-20 22:07:40,026 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:40,027  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:40,027 DEBUG Container - Container o.s.j.s.ServletContextHandler{/api,null} - org.spark-project.jetty.servlet.ServletHandler@2a0b69ef as handler
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/api,null}
+2017-05-20 22:07:40,027 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@5de8438a
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@5de8438a
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@168d894c
+2017-05-20 22:07:40,027 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@168d894c
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$2-23bcfc32
+2017-05-20 22:07:40,027 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@168d894c
+2017-05-20 22:07:40,028 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:40,028  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:40,028 DEBUG Container - Container o.s.j.s.ServletContextHandler{/,null} - org.spark-project.jetty.servlet.ServletHandler@168d894c as handler
+2017-05-20 22:07:40,028 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/,null}
+2017-05-20 22:07:40,028 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6
+2017-05-20 22:07:40,028 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@2f3e34c6
+2017-05-20 22:07:40,028 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@467b496c
+2017-05-20 22:07:40,028 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:40,028 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@7f608b1d
+2017-05-20 22:07:40,028 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@7f608b1d
+2017-05-20 22:07:40,028 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.DefaultServlet-6f8f7705
+2017-05-20 22:07:40,029 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.DefaultServlet-6f8f7705
+2017-05-20 22:07:40,029 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@7f608b1d
+2017-05-20 22:07:40,029 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:40,029  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:40,029 DEBUG Container - Container o.s.j.s.ServletContextHandler{/static,null} - org.spark-project.jetty.servlet.ServletHandler@7f608b1d as handler
+2017-05-20 22:07:40,029 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/static,null}
+2017-05-20 22:07:40,029 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@467b496c
+2017-05-20 22:07:40,029 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@467b496c
+2017-05-20 22:07:40,029 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@709815c5
+2017-05-20 22:07:40,030 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:40,030 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@625f6e83
+2017-05-20 22:07:40,030 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@625f6e83
+2017-05-20 22:07:40,030 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-56206965
+2017-05-20 22:07:40,030 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-56206965
+2017-05-20 22:07:40,030 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@625f6e83
+2017-05-20 22:07:40,030 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:40,030  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:40,030 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors/threadDump/json,null} - org.spark-project.jetty.servlet.ServletHandler@625f6e83 as handler
+2017-05-20 22:07:40,030 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2017-05-20 22:07:40,030 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@709815c5
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@709815c5
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@6fd3befd
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@3a629658
+2017-05-20 22:07:40,031 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@3a629658
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-ab0562f
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-ab0562f
+2017-05-20 22:07:40,031 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@3a629658
+2017-05-20 22:07:40,031 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:40,031  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:40,031 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors/threadDump,null} - org.spark-project.jetty.servlet.ServletHandler@3a629658 as handler
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2017-05-20 22:07:40,032 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@6fd3befd
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@6fd3befd
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@5198c5b1
+2017-05-20 22:07:40,032 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@5198c5b1
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-79ff0752
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-79ff0752
+2017-05-20 22:07:40,032 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@5198c5b1
+2017-05-20 22:07:40,032 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:40,032  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:40,033 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors/json,null} - org.spark-project.jetty.servlet.ServletHandler@5198c5b1 as handler
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/executors/json,null}
+2017-05-20 22:07:40,033 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@64e1a9ac
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@512cff2d
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e
+2017-05-20 22:07:40,033 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-45b12fe
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-45b12fe
+2017-05-20 22:07:40,033 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e
+2017-05-20 22:07:40,033 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:40,033  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:40,034 DEBUG Container - Container o.s.j.s.ServletContextHandler{/executors,null} - org.spark-project.jetty.servlet.ServletHandler@6cfe2b8e as handler
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/executors,null}
+2017-05-20 22:07:40,034 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@512cff2d
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@512cff2d
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@1041f2b0
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@7375621d
+2017-05-20 22:07:40,034 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@7375621d
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-3b1bd985
+2017-05-20 22:07:40,034 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@7375621d
+2017-05-20 22:07:40,034 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:40,034  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:40,035 DEBUG Container - Container o.s.j.s.ServletContextHandler{/environment/json,null} - org.spark-project.jetty.servlet.ServletHandler@7375621d as handler
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/environment/json,null}
+2017-05-20 22:07:40,035 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@1041f2b0
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@1041f2b0
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@45d5d892
+2017-05-20 22:07:40,035 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@45d5d892
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-46bef701
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-46bef701
+2017-05-20 22:07:40,035 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@45d5d892
+2017-05-20 22:07:40,035 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:40,035  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:40,036 DEBUG Container - Container o.s.j.s.ServletContextHandler{/environment,null} - org.spark-project.jetty.servlet.ServletHandler@45d5d892 as handler
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/environment,null}
+2017-05-20 22:07:40,036 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@59ea4a7f
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@545c2480
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@669b7818
+2017-05-20 22:07:40,036 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@669b7818
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-d68aee2
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-d68aee2
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@669b7818
+2017-05-20 22:07:40,036 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:40,036  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:40,036 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage/rdd/json,null} - org.spark-project.jetty.servlet.ServletHandler@669b7818 as handler
+2017-05-20 22:07:40,036 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2017-05-20 22:07:40,037 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@545c2480
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@545c2480
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@6db58326
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@5289b3be
+2017-05-20 22:07:40,037 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@5289b3be
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-46281d4f
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-46281d4f
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@5289b3be
+2017-05-20 22:07:40,037 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:40,037  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:40,037 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage/rdd,null} - org.spark-project.jetty.servlet.ServletHandler@5289b3be as handler
+2017-05-20 22:07:40,037 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2017-05-20 22:07:40,037 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@6db58326
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@6db58326
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@372fd9b3
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@27722c91
+2017-05-20 22:07:40,038 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@27722c91
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-699aa4e6
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@27722c91
+2017-05-20 22:07:40,038 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:40,038  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:40,038 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage/json,null} - org.spark-project.jetty.servlet.ServletHandler@27722c91 as handler
+2017-05-20 22:07:40,038 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/storage/json,null}
+2017-05-20 22:07:40,038 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@372fd9b3
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@372fd9b3
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@1d02072b
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@b651108
+2017-05-20 22:07:40,039 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@b651108
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-208d70d8
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-208d70d8
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@b651108
+2017-05-20 22:07:40,039 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:40,039  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:40,039 DEBUG Container - Container o.s.j.s.ServletContextHandler{/storage,null} - org.spark-project.jetty.servlet.ServletHandler@b651108 as handler
+2017-05-20 22:07:40,039 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/storage,null}
+2017-05-20 22:07:40,040 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@1d02072b
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@1d02072b
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@20832a6a
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@439ef700
+2017-05-20 22:07:40,040 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@439ef700
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-6a835ec3
+2017-05-20 22:07:40,040 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@439ef700
+2017-05-20 22:07:40,040 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:40,040  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:40,041 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/pool/json,null} - org.spark-project.jetty.servlet.ServletHandler@439ef700 as handler
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2017-05-20 22:07:40,041 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@20832a6a
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@20832a6a
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@6527fcec
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@54a43554
+2017-05-20 22:07:40,041 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@54a43554
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-4aac61b3
+2017-05-20 22:07:40,041 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@54a43554
+2017-05-20 22:07:40,041 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:40,041  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:40,042 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/pool,null} - org.spark-project.jetty.servlet.ServletHandler@54a43554 as handler
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages/pool,null}
+2017-05-20 22:07:40,042 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@6527fcec
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@6527fcec
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@c54da72
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@28808762
+2017-05-20 22:07:40,042 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@28808762
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-4a834762
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-4a834762
+2017-05-20 22:07:40,042 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@28808762
+2017-05-20 22:07:40,042 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:40,042  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:40,042 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/stage/json,null} - org.spark-project.jetty.servlet.ServletHandler@28808762 as handler
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2017-05-20 22:07:40,043 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@c54da72
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@c54da72
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@c963544
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@1f5afd36
+2017-05-20 22:07:40,043 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@1f5afd36
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-1a47490c
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-1a47490c
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@1f5afd36
+2017-05-20 22:07:40,043 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:40,043  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:40,043 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/stage,null} - org.spark-project.jetty.servlet.ServletHandler@1f5afd36 as handler
+2017-05-20 22:07:40,043 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages/stage,null}
+2017-05-20 22:07:40,044 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@c963544
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@c963544
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@a79f319
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@35c45d35
+2017-05-20 22:07:40,044 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@35c45d35
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-2f759399
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-2f759399
+2017-05-20 22:07:40,044 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@35c45d35
+2017-05-20 22:07:40,044 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:40,044  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:40,044 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages/json,null} - org.spark-project.jetty.servlet.ServletHandler@35c45d35 as handler
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages/json,null}
+2017-05-20 22:07:40,045 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@a79f319
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@a79f319
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@72b37529
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@4de637d9
+2017-05-20 22:07:40,045 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@4de637d9
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-3f1de13f
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@4de637d9
+2017-05-20 22:07:40,045 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:40,045  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:40,045 DEBUG Container - Container o.s.j.s.ServletContextHandler{/stages,null} - org.spark-project.jetty.servlet.ServletHandler@4de637d9 as handler
+2017-05-20 22:07:40,045 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/stages,null}
+2017-05-20 22:07:40,046 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@72b37529
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@72b37529
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@33a66c88
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@550c5c3b
+2017-05-20 22:07:40,046 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@550c5c3b
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-5a09674c
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-5a09674c
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@550c5c3b
+2017-05-20 22:07:40,046 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:40,046  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:40,046 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs/job/json,null} - org.spark-project.jetty.servlet.ServletHandler@550c5c3b as handler
+2017-05-20 22:07:40,046 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2017-05-20 22:07:40,046 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@33a66c88
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@33a66c88
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@609cdeac
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@4e5da29
+2017-05-20 22:07:40,047 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@4e5da29
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-2696cdc8
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@4e5da29
+2017-05-20 22:07:40,047 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:40,047  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:40,047 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs/job,null} - org.spark-project.jetty.servlet.ServletHandler@4e5da29 as handler
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/jobs/job,null}
+2017-05-20 22:07:40,047 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@609cdeac
+2017-05-20 22:07:40,047 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@609cdeac
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@73d17169
+2017-05-20 22:07:40,048 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@73d17169
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-13046e63
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-13046e63
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@73d17169
+2017-05-20 22:07:40,048 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:40,048  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:40,048 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs/json,null} - org.spark-project.jetty.servlet.ServletHandler@73d17169 as handler
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/jobs/json,null}
+2017-05-20 22:07:40,048 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@7ae04a4c
+2017-05-20 22:07:40,048 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.GzipHandler@200c3b1e
+2017-05-20 22:07:40,049 DEBUG AbstractLifeCycle - stopping o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:40,049 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.servlet.ServletHandler@791b074c
+2017-05-20 22:07:40,049 DEBUG AbstractHandler - stopping org.spark-project.jetty.servlet.ServletHandler@791b074c
+2017-05-20 22:07:40,049 DEBUG AbstractLifeCycle - stopping org.apache.spark.ui.JettyUtils$$anon$1-d02e364
+2017-05-20 22:07:40,049 DEBUG AbstractLifeCycle - STOPPED org.apache.spark.ui.JettyUtils$$anon$1-d02e364
+2017-05-20 22:07:40,049 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.servlet.ServletHandler@791b074c
+2017-05-20 22:07:40,049 DEBUG AbstractHandler - stopping o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:40,049  INFO ContextHandler - stopped o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:40,050 DEBUG Container - Container o.s.j.s.ServletContextHandler{/jobs,null} - org.spark-project.jetty.servlet.ServletHandler@791b074c as handler
+2017-05-20 22:07:40,050 DEBUG AbstractLifeCycle - STOPPED o.s.j.s.ServletContextHandler{/jobs,null}
+2017-05-20 22:07:40,050 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.GzipHandler@200c3b1e
+2017-05-20 22:07:40,050 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.GzipHandler@200c3b1e
+2017-05-20 22:07:40,050 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.ContextHandlerCollection@71c25737
+2017-05-20 22:07:40,050 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.Server@7e76581d
+2017-05-20 22:07:40,050 DEBUG AbstractLifeCycle - stopping org.spark-project.jetty.server.handler.ErrorHandler@16ff5c50
+2017-05-20 22:07:40,050 DEBUG AbstractHandler - stopping org.spark-project.jetty.server.handler.ErrorHandler@16ff5c50
+2017-05-20 22:07:40,050 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.handler.ErrorHandler@16ff5c50
+2017-05-20 22:07:40,050 DEBUG AbstractLifeCycle - stopping qtp1614747575{8<=8<=8/254,0}
+2017-05-20 22:07:40,102 DEBUG AbstractLifeCycle - STOPPED qtp1614747575{8<=0<=0/254,5}
+2017-05-20 22:07:40,102 DEBUG AbstractLifeCycle - STOPPED org.spark-project.jetty.server.Server@7e76581d
+2017-05-20 22:07:40,103  INFO SparkUI - Stopped Spark web UI at http://172.19.73.74:4040
+2017-05-20 22:07:40,110  INFO SparkDeploySchedulerBackend - Shutting down all executors
+2017-05-20 22:07:40,116  INFO SparkDeploySchedulerBackend - Asking each executor to shut down
+2017-05-20 22:07:40,135  INFO MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+2017-05-20 22:07:40,149  INFO MemoryStore - MemoryStore cleared
+2017-05-20 22:07:40,150  INFO BlockManager - BlockManager stopped
+2017-05-20 22:07:40,159  INFO BlockManagerMaster - BlockManagerMaster stopped
+2017-05-20 22:07:40,163  INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+2017-05-20 22:07:40,178  INFO SparkContext - Successfully stopped SparkContext
+2017-05-20 22:07:40,179  INFO ShutdownHookManager - Shutdown hook called
+2017-05-20 22:07:40,181  INFO ShutdownHookManager - Deleting directory /tmp/spark-dcab4156-5e65-4529-90e2-d8ffda7f1b03
+2017-05-20 22:07:40,181  INFO RemoteActorRefProvider$RemotingTerminator - Shutting down remote daemon.
+2017-05-20 22:07:40,182  INFO RemoteActorRefProvider$RemotingTerminator - Remote daemon shut down; proceeding with flushing remote transports.
+2017-05-20 22:07:40,184  INFO ShutdownHookManager - Deleting directory /tmp/spark-dcab4156-5e65-4529-90e2-d8ffda7f1b03/pyspark-eff0222b-8283-4924-a840-d5c0daaa26db
+2017-05-20 22:07:40,184  INFO ShutdownHookManager - Deleting directory /tmp/spark-dcab4156-5e65-4529-90e2-d8ffda7f1b03/httpd-fbc302e3-97e7-460b-a38b-c3042652c350

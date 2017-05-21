@@ -15,7 +15,6 @@ from wikitext_mysql_operator import Mysql_operator
 from table_wikitext_nodes import Table_nodes
 from table_wikitext_edges import Table_edges
 
-sc = SparkContext()
 log = Log.getLogger()
 
 def calc_edge_between(param):
@@ -47,6 +46,8 @@ def calc_edge_between(param):
 if __name__ == "__main__":
 	log.info("get_edges_by_subtractions.py start.")
 
+	#sc = SparkContext()
+	sc = SparkContext.getOrCreate()
 	db = Mysql_operator()
 	records = db.session.query(Table_nodes).all()
 
@@ -60,11 +61,11 @@ if __name__ == "__main__":
 	log.debug("ids.size[" + str(len(ids)) + "]")
 	log.debug("vectors.size[" + str(len(doc2vec)) + "]")
 
-	for start_id in [ids[0]]:
+	for start_id in [ids[0], ids[1]]:
 		log.debug("start_id[" + str(start_id) + "] create param")
 		params = sc.parallelize([[start_id, end_id, doc2vec] for end_id in ids])
 		log.debug("params.map")
-		result = params.map(calc_edge_between)
+		result = params.reduceByKey(calc_edge_between)
 
 	log.debug("Finished!!")
 	print("Finished!!")
