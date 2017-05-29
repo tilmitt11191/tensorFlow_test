@@ -1,10 +1,11 @@
 
-exec_env: "spark"
+exec_env: "normal"
 
 logdir: ../../var/log/
 logfile: log
 node_logfile: node_log
-loglevel: DEBUG
+loglevel: ERROR
+# DEBUG, INFO, WARN, ERROR
 
 rotate_log_size: 268435456 #1024*1024*256B
 #rotate_log_size: 1073741824 #1024*1024*1024B
@@ -15,4 +16,6 @@ backup_log_count: 10
 
 myslq_url: "mysql+pymysql://alladmin:admin@localhost/mnist?charset=utf8"
 wikitext_myslq_url: "mysql+pymysql://alladmin:admin@localhost/wikitext?charset=utf8"
+enwiki_myslq_url: "mysql+pymysql://alladmin:admin@127.0.0.1/enwiki?charset=utf8mb4"
+
 

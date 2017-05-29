@@ -3,6 +3,8 @@
 /var/log/*
 *.tar.gz
 *.dll
+info_matrix
+sent_matrix
 node_modules/*
 __pycache__/*
 !.gitignore

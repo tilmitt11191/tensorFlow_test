@@ -13,7 +13,8 @@ def contents_to_sentences(title, contents):
 	sentences.append(LabeledSentence(words=contents, tags=[title]))
 
 f = codecs.open(
-	"../../data/wikitext/wikitext-103-raw/wiki.train.raw", "r", "utf-8")
+	"../../data/wikitext/datasets/enwiki-20170501-pages-articles1.xml-p10p30302", "r", "utf-8")
+	#"../../data/wikitext/wikitext-103-raw/wiki.train.raw", "r", "utf-8")
 title = ""
 contents = ""
 for row in f:
@@ -43,5 +44,5 @@ for epoch in range(20):
 	model.min_alpha = model.alpha
 
 print("save model")
-model.save('wikitext_doc2vec.model')
+model.save('wikitext_articles1_doc2vec.model')
 #model = models.Doc2Vec.load('wikitext_doc2vec.model')

@@ -1,0 +1,31 @@
+workspace $ python ../../wikitext/create_doc2vec_model_from_docsmap.py
+docs = ["../../data/wikitext/datasets/enwiki-20170501-pages-articles1.xml-p10p30302"]
+create sentences finished. sentences len is 19858
+perf_counter = 32.7322615
+create model
+perf_counter = 33.7305720
+
+train start
+Epoch: 1
+Epoch: 2
+Epoch: 3
+Epoch: 4
+Epoch: 5
+perf_counter = 1579.0578875
+
+workspace $ python ../../wikitext/create_doc2vec_model_from_docsmap.py
+docs = ["../../data/wikitext/datasets/enwiki-20170501-pages-articles1.xml-p10p30302"]
+create sentences finished. sentences len is 19858
+perf_counter = 48.0631916
+create model
+perf_counter = 41.3347478
+
+train start
+Epoch: 1
+Epoch: 2
+Epoch: 3
+Epoch: 4
+Epoch: 5
+perf_counter = 1633.0305394
+save model
+
