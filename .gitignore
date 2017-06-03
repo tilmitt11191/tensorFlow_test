@@ -1,5 +1,6 @@
 /data/*
 !/data/wikitext/*
+/samples/im2txt/im2txt/data/*
 /var/log/*
 *.tar.gz
 *.dll
