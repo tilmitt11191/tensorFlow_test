@@ -14,7 +14,7 @@ log = Log.getLogger()
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../../lib/db")
 #from enwiki_nodes import Table_nodes
-from table_wikitext_nodes import Table_nodes
+from enwiki_nodes import Table_nodes
 from enwiki_operator import Mysql_operator
 
 import tensorflow as tf
@@ -25,10 +25,10 @@ def main(argv=None):
 	print("this is main")
 	log = Log.getLogger()
 	db = Mysql_operator()
-	records = db.session.query(Table_nodes).all()
+	#records = db.session.query(Table_nodes).all()
+	records = db.session.query(Table_nodes).filter(Table_nodes.id < 10).all()
 	print(len(records))
-
-
+	print(records[0].title,records[0].sentence)
 
 if __name__ == '__main__':
 	tf.app.run()
