@@ -112,11 +112,11 @@ class ShowAndTellModel(object):
 			A float32 Tensor of shape [height, width, 3]; the processed image.
 		"""
 		return image_processing.process_image(encoded_image,
-																					is_training=self.is_training(),
-																					height=self.config.image_height,
-																					width=self.config.image_width,
-																					thread_id=thread_id,
-																					image_format=self.config.image_format)
+					is_training=self.is_training(),
+					height=self.config.image_height,
+					width=self.config.image_width,
+					thread_id=thread_id,
+					image_format=self.config.image_format)
 
 	def build_inputs(self):
 		"""Input prefetching, preprocessing and batching.
@@ -131,8 +131,8 @@ class ShowAndTellModel(object):
 			# In inference mode, images and inputs are fed via placeholders.
 			image_feed = tf.placeholder(dtype=tf.string, shape=[], name="image_feed")
 			input_feed = tf.placeholder(dtype=tf.int64,
-																	shape=[None],	# batch_size
-																	name="input_feed")
+	shape=[None],	# batch_size
+	name="input_feed")
 
 			# Process image and insert batch dimensions.
 			images = tf.expand_dims(self.process_image(image_feed), 0)
@@ -167,11 +167,11 @@ class ShowAndTellModel(object):
 
 			# Batch inputs.
 			queue_capacity = (2 * self.config.num_preprocess_threads *
-												self.config.batch_size)
+				self.config.batch_size)
 			images, input_seqs, target_seqs, input_mask = (
 					input_ops.batch_with_dynamic_pad(images_and_captions,
-																					 batch_size=self.config.batch_size,
-																					 queue_capacity=queue_capacity))
+					 batch_size=self.config.batch_size,
+					 queue_capacity=queue_capacity))
 
 		self.images = images
 		self.input_seqs = input_seqs
@@ -268,8 +268,8 @@ class ShowAndTellModel(object):
 
 				# Placeholder for feeding a batch of concatenated states.
 				state_feed = tf.placeholder(dtype=tf.float32,
-																		shape=[None, sum(lstm_cell.state_size)],
-																		name="state_feed")
+		shape=[None, sum(lstm_cell.state_size)],
+		name="state_feed")
 				state_tuple = tf.split(value=state_feed, num_or_size_splits=2, axis=1)
 
 				# Run a single LSTM step.
@@ -283,11 +283,11 @@ class ShowAndTellModel(object):
 				# Run the batch of sequence embeddings through the LSTM.
 				sequence_length = tf.reduce_sum(self.input_mask, 1)
 				lstm_outputs, _ = tf.nn.dynamic_rnn(cell=lstm_cell,
-																						inputs=self.seq_embeddings,
-																						sequence_length=sequence_length,
-																						initial_state=initial_state,
-																						dtype=tf.float32,
-																						scope=lstm_scope)
+						inputs=self.seq_embeddings,
+						sequence_length=sequence_length,
+						initial_state=initial_state,
+						dtype=tf.float32,
+						scope=lstm_scope)
 
 		# Stack batches vertically.
 		lstm_outputs = tf.reshape(lstm_outputs, [-1, lstm_cell.output_size])
@@ -308,10 +308,10 @@ class ShowAndTellModel(object):
 
 			# Compute losses.
 			losses = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=targets,
-																															logits=logits)
+							logits=logits)
 			batch_loss = tf.div(tf.reduce_sum(tf.multiply(losses, weights)),
-													tf.reduce_sum(weights),
-													name="batch_loss")
+					tf.reduce_sum(weights),
+					name="batch_loss")
 			tf.losses.add_loss(batch_loss)
 			total_loss = tf.losses.get_total_loss()
 
@@ -333,7 +333,7 @@ class ShowAndTellModel(object):
 
 			def restore_fn(sess):
 				tf.logging.info("Restoring Inception variables from checkpoint file %s",
-												self.config.inception_checkpoint_file)
+				self.config.inception_checkpoint_file)
 				saver.restore(sess, self.config.inception_checkpoint_file)
 
 			self.init_fn = restore_fn

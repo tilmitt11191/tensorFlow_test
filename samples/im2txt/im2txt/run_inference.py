@@ -48,7 +48,7 @@ def main(_):
 	with g.as_default():
 		model = inference_wrapper.InferenceWrapper()
 		restore_fn = model.build_graph_from_config(configuration.ModelConfig(),
-																							 FLAGS.checkpoint_path)
+					FLAGS.checkpoint_path)
 	g.finalize()
 
 	# Create the vocabulary.

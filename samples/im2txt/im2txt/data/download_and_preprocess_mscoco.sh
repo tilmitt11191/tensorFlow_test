@@ -55,7 +55,13 @@ function download_and_unzip() {
     echo "Skipping download of ${FILENAME}"
   fi
   echo "Unzipping ${FILENAME}"
-  ${UNZIP} ${FILENAME}
+  pwd
+  ls
+  echo $UNZIP ${FILENAME}
+  #${UNZIP} ${FILENAME}
+  #eval "$UNZIP $FILENAME"
+  unzip ${FILENAME}
+  echo "unzip finished"
 }
 
 cd ${SCRATCH_DIR}
@@ -64,17 +70,17 @@ cd ${SCRATCH_DIR}
 BASE_IMAGE_URL="http://msvocds.blob.core.windows.net/coco2014"
 
 TRAIN_IMAGE_FILE="train2014.zip"
-download_and_unzip ${BASE_IMAGE_URL} ${TRAIN_IMAGE_FILE}
+#download_and_unzip ${BASE_IMAGE_URL} ${TRAIN_IMAGE_FILE}
 TRAIN_IMAGE_DIR="${SCRATCH_DIR}/train2014"
 
 VAL_IMAGE_FILE="val2014.zip"
-download_and_unzip ${BASE_IMAGE_URL} ${VAL_IMAGE_FILE}
+#download_and_unzip ${BASE_IMAGE_URL} ${VAL_IMAGE_FILE}
 VAL_IMAGE_DIR="${SCRATCH_DIR}/val2014"
 
 # Download the captions.
 BASE_CAPTIONS_URL="http://msvocds.blob.core.windows.net/annotations-1-0-3"
 CAPTIONS_FILE="captions_train-val2014.zip"
-download_and_unzip ${BASE_CAPTIONS_URL} ${CAPTIONS_FILE}
+#download_and_unzip ${BASE_CAPTIONS_URL} ${CAPTIONS_FILE}
 TRAIN_CAPTIONS_FILE="${SCRATCH_DIR}/annotations/captions_train2014.json"
 VAL_CAPTIONS_FILE="${SCRATCH_DIR}/annotations/captions_val2014.json"
 
