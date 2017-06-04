@@ -1,6 +1,8 @@
 /data/*
 !/data/wikitext/*
-/samples/im2txt/im2txt/data/*
+/samples/im2txt/im2txt/data/mscoco/
+/samples/im2txt/train2014/*
+/samples/im2txt/
 /var/log/*
 *.tar.gz
 *.dll
