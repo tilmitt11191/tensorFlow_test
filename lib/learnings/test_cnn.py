@@ -58,23 +58,27 @@ def main(argv=None):
 	log = Log.getLogger()
 	db = Mysql_operator()
 	#records = db.session.query(Table_nodes).all()
-	records = db.session.query(Table_nodes).filter(Table_nodes.id < 10).all()
-	print(len(records))
+	#records = db.session.query(Table_nodes).filter(Table_nodes.id < 10).all()
+	#print(len(records))
 	ids = []
 	titles = []
 	docs = []
 	sentences = []
-	for record in records:
-		ids.append(record.id)
-		titles.append(record.title)
-		docs.append(record.doc2vec)
-		sentences.append(record.sentence)
+	#for record in records:
+	#	ids.append(record.id)
+	#	titles.append(record.title)
+	#	docs.append(record.doc2vec)
+	#	sentences.append(record.sentence)
 
-	parse_sequence_example(docs[0], sentences[0], ids[0])
-
-	#scope = "InceptionV3"
-	#with tf.variable_scope(scope, "InceptionV3", [docs]) as scope:
-	#	net, end_points = inception_v3_base(docs, scope=scope)
+	#parse_sequence_example(docs[0], sentences[0], ids[0])
+	for i in range(10):
+		#print(i)
+		a = str(i)
+		def _print(a,b):
+			print(a,b)
+			return a
+		tmp = _print
+		print(tmp)
 
 
 if __name__ == '__main__':
