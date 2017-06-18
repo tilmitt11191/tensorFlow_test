@@ -4,7 +4,7 @@ exec_env: "normal"
 logdir: ../../var/log/
 logfile: log
 node_logfile: node_log
-loglevel: ERROR
+loglevel: DEBUG
 # DEBUG, INFO, WARN, ERROR
 
 rotate_log_size: 268435456 #1024*1024*256B
