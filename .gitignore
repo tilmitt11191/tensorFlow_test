@@ -4,9 +4,9 @@
 /samples/im2txt/im2txt/data/mscoco/
 /samples/im2txt/train2014/*
 /samples/im2txt/
+/samples/Multi-label-Inception-net/*
 !/samples/Multi-label-Inception-net/*.py
 !/samples/Multi-label-Inception-net/*.sh
-/samples/Multi-label-Inception-net/*
 
 /var/log/*
 *.tar.gz
