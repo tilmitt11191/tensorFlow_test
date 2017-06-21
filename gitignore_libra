@@ -1,7 +1,0 @@
-/data/tmp/*
-/data/mnist/*
-/var/log/*
-*.tar.gz
-*.dll
-
-!.gitignore

@@ -1,4 +1,0 @@
-var/log/*
-data/*
-*.tar.gz
-*.dll
